@@ -1,28 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Playfair_Display } from "next/font/google";
+import { Inter_Tight, Manrope } from "next/font/google";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig, siteUrl } from "@/lib/site-config";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-inter-tight",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-manrope",
   display: "swap",
 });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: siteConfig.themeColor },
-    { media: "(prefers-color-scheme: dark)", color: "#1a0a12" },
-  ],
+  themeColor: siteConfig.backgroundColor,
 };
 
 export const metadata: Metadata = {
@@ -42,12 +39,9 @@ export const metadata: Metadata = {
     telephone: true,
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "48x48 32x32 16x16" },
-      { url: "/favicon.png", type: "image/png" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
+    icon: [{ url: "/favicon.png?v=2", type: "image/png", sizes: "296x320" }],
+    shortcut: "/favicon.png?v=2",
+    apple: [{ url: "/apple-touch-icon.png?v=2", type: "image/png" }],
   },
   alternates: {
     canonical: "/",
@@ -62,14 +56,13 @@ export const metadata: Metadata = {
     alternateLocale: ["es"],
     url: siteUrl,
     siteName: siteConfig.name,
-    title: siteConfig.name,
+    title: siteConfig.title,
     description: siteConfig.ogDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: siteConfig.title,
     description: siteConfig.ogDescription,
-    creator: siteConfig.twitterHandle,
   },
   robots: {
     index: true,
@@ -91,12 +84,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={siteConfig.language} className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="min-h-screen antialiased">
-        <a
-          href="#contenido-principal"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-pink focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-primary-foreground focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring"
-        >
+    <html lang={siteConfig.language} className={`${interTight.variable} ${manrope.variable}`}>
+      <body>
+        <a className="skip-link" href="#contenido-principal">
           Saltar al contenido principal
         </a>
         <JsonLd />

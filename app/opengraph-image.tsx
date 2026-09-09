@@ -18,45 +18,52 @@ export default function OpenGraphImage() {
           alignItems: "flex-start",
           justifyContent: "center",
           padding: 72,
-          background: "linear-gradient(135deg, #c0266e 0%, #9d174d 45%, #7c2d12 100%)",
+          background: "#f7f6f2",
+          color: "#0c0c0e",
         }}
       >
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 16,
-            maxWidth: 900,
+            gap: 20,
+            maxWidth: 920,
           }}
         >
           <div
             style={{
-              fontSize: 22,
+              display: "flex",
+              fontSize: 18,
               fontWeight: 600,
-              letterSpacing: "0.2em",
+              letterSpacing: "0.16em",
               textTransform: "uppercase",
-              color: "rgba(255,255,255,0.85)",
+              color: "#ed0a78",
             }}
           >
-            Estudio digital
+            Estudio digital · Argentina
           </div>
           <div
             style={{
-              fontSize: 64,
-              fontWeight: 700,
-              lineHeight: 1.05,
-              color: "white",
-              letterSpacing: "-0.02em",
+              display: "flex",
+              flexDirection: "column",
+              fontSize: 72,
+              fontWeight: 600,
+              lineHeight: 0.9,
+              letterSpacing: "-0.07em",
+              textTransform: "uppercase",
             }}
           >
-            {siteConfig.shortName}
+            <div style={{ display: "flex" }}>Diseño</div>
+            <div style={{ display: "flex" }}>Código</div>
+            <div style={{ display: "flex" }}>Negocio.</div>
           </div>
           <div
             style={{
-              fontSize: 28,
+              display: "flex",
+              fontSize: 24,
               lineHeight: 1.35,
-              color: "rgba(255,255,255,0.92)",
-              maxWidth: 720,
+              color: "#716e69",
+              maxWidth: 680,
             }}
           >
             {siteConfig.ogDescription}

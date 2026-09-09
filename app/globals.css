@@ -313,18 +313,39 @@ button {
 
 .menu-btn {
   display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   background: none;
   border: 0;
-  padding: 8px;
-  gap: 6px;
-  flex-direction: column;
 }
 
 .menu-btn span {
+  position: absolute;
+  left: 8px;
   width: 24px;
   height: 1px;
   background: #111;
   display: block;
+  transform-origin: center;
+  transition: transform 0.35s var(--ease);
+}
+
+.menu-btn span:first-child {
+  top: 16px;
+}
+
+.menu-btn span:last-child {
+  top: 23px;
+}
+
+.menu-btn[aria-expanded="true"] span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.menu-btn[aria-expanded="true"] span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
 }
 
 /* hero */

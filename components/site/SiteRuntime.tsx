@@ -132,6 +132,7 @@ export function SiteRuntime() {
     const setOpen = (open: boolean) => {
       panel.classList.toggle("open", open);
       menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
       panel.setAttribute("aria-hidden", String(!open));
       document.body.classList.toggle("is-menu-open", open);
     };

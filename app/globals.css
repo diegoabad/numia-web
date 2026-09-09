@@ -635,10 +635,14 @@ button {
 .wpanel {
   position: sticky;
   top: var(--topbar-h);
-  height: calc(100svh - var(--topbar-h));
+  height: calc(100svh - var(--topbar-h) + 42vh);
   overflow: clip;
   border-radius: clamp(12px, 1.6vw, 22px) clamp(12px, 1.6vw, 22px) 0 0;
   box-shadow: 0 -16px 36px -22px rgba(0, 0, 0, 0.18);
+}
+
+.wpanel:last-child {
+  height: calc(100svh - var(--topbar-h));
 }
 
 .wpanel:nth-child(1) {
@@ -684,7 +688,7 @@ button {
 
 .wpanel__in {
   position: relative;
-  height: 100%;
+  height: calc(100svh - var(--topbar-h));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1408,10 +1412,16 @@ button {
     font-size: clamp(48px, 13vw, 96px);
   }
   .wpanel {
+    height: calc(100svh - var(--topbar-h) + 42vh);
+    height: calc(100dvh - var(--topbar-h) + 42vh);
+  }
+  .wpanel:last-child {
     height: calc(100svh - var(--topbar-h));
     height: calc(100dvh - var(--topbar-h));
   }
   .wpanel__in {
+    height: calc(100svh - var(--topbar-h));
+    height: calc(100dvh - var(--topbar-h));
     padding: 32px 22px 28px;
   }
   .wpanel__title {

@@ -139,7 +139,7 @@ export function SiteRuntime() {
     const close = () => setOpen(false);
 
     const onResize = () => {
-      if (window.innerWidth > 900) close();
+      if (window.innerWidth > 1100) close();
     };
 
     menuBtn.addEventListener("click", toggle);

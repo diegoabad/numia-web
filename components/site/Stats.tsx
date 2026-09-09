@@ -7,7 +7,7 @@ const stats = [
 
 export function Stats() {
   return (
-    <section className="stats section-pad">
+    <section className="stats section-pad" id="cifras">
       <div className="stats__head">
         <p className="kicker reveal">LO QUE MEDIMOS</p>
         <p className="stats__small reveal">

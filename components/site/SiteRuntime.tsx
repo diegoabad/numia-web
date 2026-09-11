@@ -12,6 +12,7 @@ export function SiteRuntime() {
   const [done, setDone] = useState(false);
   const [visible, setVisible] = useState(true);
   const barRef = useRef<HTMLSpanElement>(null);
+  const progressRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const body = document.body;
@@ -81,6 +82,12 @@ export function SiteRuntime() {
 
     const onFrame = () => {
       ticking = false;
+
+      if (progressRef.current) {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const p = clamp(max > 0 ? window.scrollY / max : 0, 0, 1);
+        progressRef.current.style.transform = `scaleX(${p.toFixed(4)})`;
+      }
 
       if (!reduced && mtrack && manifestoWords.length) {
         const trackRect = mtrack.getBoundingClientRect();
@@ -157,6 +164,9 @@ export function SiteRuntime() {
 
   return (
     <>
+      <div className="scroll-progress" aria-hidden="true">
+        <i ref={progressRef} />
+      </div>
       <div className="noise" aria-hidden="true" />
       {visible ? (
         <div className={`preloader${done ? " is-done" : ""}`} aria-hidden="true">

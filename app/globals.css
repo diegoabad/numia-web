@@ -22,33 +22,13 @@ html {
   background: var(--bg);
   overflow-x: clip;
   scroll-padding-top: var(--topbar-h);
-  scrollbar-width: thin;
-  scrollbar-color: var(--pink) transparent;
+  scrollbar-width: none;
 }
 
 html::-webkit-scrollbar {
-  width: 12px;
-}
-
-html::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-html::-webkit-scrollbar-thumb {
-  background: var(--pink);
-  border-radius: 999px;
-  border: 3px solid var(--bg);
-  background-clip: padding-box;
-}
-
-html::-webkit-scrollbar-thumb:hover {
-  background: #c40868;
-  border: 3px solid var(--bg);
-  background-clip: padding-box;
-}
-
-html::-webkit-scrollbar-corner {
-  background: transparent;
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 body {
@@ -57,6 +37,11 @@ body {
   color: var(--ink);
   font-family: var(--font-display);
   overflow-x: clip;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 body.is-menu-open {
@@ -99,6 +84,26 @@ button {
 
 .skip-link:focus {
   transform: none;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.scroll-progress i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--pink);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
 }
 
 .noise {

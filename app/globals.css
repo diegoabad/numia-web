@@ -22,6 +22,33 @@ html {
   background: var(--bg);
   overflow-x: clip;
   scroll-padding-top: var(--topbar-h);
+  scrollbar-width: thin;
+  scrollbar-color: var(--pink) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--pink);
+  border-radius: 999px;
+  border: 3px solid var(--bg);
+  background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #c40868;
+  border: 3px solid var(--bg);
+  background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 body {
@@ -97,7 +124,7 @@ button {
 }
 
 .display {
-  font-size: clamp(58px, 9.1vw, 164px);
+  font-size: clamp(52px, 6.6vw, 112px);
   line-height: 0.82;
   letter-spacing: -0.065em;
   margin: 0;
@@ -564,7 +591,7 @@ button {
 }
 
 .manifesto__text {
-  font-size: clamp(1.7rem, 4.4vw, 3.85rem);
+  font-size: clamp(1.7rem, 3.4vw, 3.1rem);
   line-height: 1.16;
   letter-spacing: -0.035em;
   font-weight: 400;
@@ -594,7 +621,7 @@ button {
 
 .layer {
   position: absolute;
-  font-size: 58vw;
+  font-size: min(42vw, 520px);
   line-height: 0.7;
   font-weight: 700;
   color: transparent;
@@ -674,9 +701,9 @@ button {
 
 .wpanel__mark {
   position: absolute;
-  right: 4vw;
+  right: var(--page-side);
   top: 42%;
-  font-size: clamp(140px, 28vw, 380px);
+  font-size: clamp(120px, 16vw, 220px);
   line-height: 0.7;
   font-weight: 700;
   letter-spacing: -0.1em;
@@ -713,7 +740,7 @@ button {
 }
 
 .wpanel__title {
-  font-size: clamp(3rem, 8.5vw, 8rem);
+  font-size: clamp(2.6rem, 6vw, 5.4rem);
   line-height: 0.86;
   letter-spacing: -0.06em;
   font-weight: 600;
@@ -820,7 +847,7 @@ button {
 }
 
 .stat__n {
-  font-size: clamp(86px, 11vw, 170px);
+  font-size: clamp(72px, 7vw, 118px);
   line-height: 0.8;
   letter-spacing: -0.08em;
   font-weight: 500;
@@ -860,7 +887,7 @@ button {
 }
 
 .services__title {
-  font-size: clamp(48px, 7.2vw, 112px);
+  font-size: clamp(44px, 5.2vw, 80px);
   line-height: 0.86;
   letter-spacing: -0.06em;
   font-weight: 600;
@@ -963,7 +990,7 @@ button {
 }
 
 .process__side .display {
-  font-size: clamp(56px, 7.4vw, 120px);
+  font-size: clamp(48px, 5.4vw, 88px);
   line-height: 1.04;
 }
 
@@ -1099,7 +1126,7 @@ button {
 }
 
 .closing__title {
-  font-size: clamp(72px, 13vw, 230px);
+  font-size: clamp(64px, 8.6vw, 140px);
   line-height: 0.73;
   letter-spacing: -0.082em;
   margin: 0;

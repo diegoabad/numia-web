@@ -2,10 +2,13 @@
 
 import { useEffect } from "react";
 
+const lead = "Tenés una idea. Nosotros te ayudamos a hacerla realidad.";
+
 const body =
   "Combinamos diseño, comunicación y tecnología para crear soluciones que potencien tu negocio, fortalezcan tu marca y conecten con las personas. Desde la primera idea hasta el resultado final, pensamos cada proyecto para que se vea bien, funcione mejor y tenga un propósito.";
 
-const words = body.split(/\s+/);
+const leadWords = lead.split(/\s+/);
+const bodyWords = body.split(/\s+/);
 
 function isAccent(word: string) {
   const clean = word.replace(/[.,;:!?]/g, "").toLowerCase();
@@ -19,7 +22,10 @@ function prefersReducedMotion() {
 export function Manifesto() {
   useEffect(() => {
     const track = document.getElementById("mtrack");
-    const spans = () => [...document.querySelectorAll<HTMLElement>("#mtext span")];
+    const spans = () => [
+      ...document.querySelectorAll<HTMLElement>("#mlead span"),
+      ...document.querySelectorAll<HTMLElement>("#mtext span"),
+    ];
     if (!track) return;
 
     const reduced = prefersReducedMotion();
@@ -70,14 +76,19 @@ export function Manifesto() {
       <div className="manifesto__track" id="mtrack">
         <div className="manifesto__pin">
           <p className="kicker reveal">Estudio digital</p>
-          <p className="manifesto__lead reveal">
-            Tenés una idea. Nosotros te ayudamos a hacerla realidad.
+          <p className="manifesto__lead" id="mlead">
+            {leadWords.map((word, i) => (
+              <span key={`lead-${word}-${i}`}>
+                {word}
+                {i < leadWords.length - 1 ? " " : ""}
+              </span>
+            ))}
           </p>
           <h2 className="manifesto__text" id="mtext">
-            {words.map((word, i) => (
-              <span key={`${word}-${i}`} className={isAccent(word) ? "mag" : undefined}>
+            {bodyWords.map((word, i) => (
+              <span key={`body-${word}-${i}`} className={isAccent(word) ? "mag" : undefined}>
                 {word}
-                {i < words.length - 1 ? " " : ""}
+                {i < bodyWords.length - 1 ? " " : ""}
               </span>
             ))}
           </h2>

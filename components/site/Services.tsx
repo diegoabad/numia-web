@@ -108,22 +108,22 @@ const extraServices = [
 export function Services() {
   return (
     <section className="services" id="servicios">
-      <div className="services__intro section-pad">
-        <p className="kicker reveal">Servicios / 03</p>
-        <div className="services__intro-grid">
-          <h2 className="services__title reveal">
-            Todo lo que necesitás para
-            <br />
-            darle forma a tu <em>negocio.</em>
-          </h2>
-          <p className="services__lead reveal">
-            Desde una web o una tienda online hasta el contenido de tus redes. Elegí por dónde
-            empezar y nosotros nos encargamos de hacerlo realidad.
-          </p>
-        </div>
-      </div>
-
       <div className="services__stack">
+        <div className="services__intro section-pad">
+          <p className="kicker reveal">Servicios / 03</p>
+          <div className="services__intro-grid">
+            <h2 className="services__title reveal">
+              Todo lo que necesitás para
+              <br />
+              darle forma a tu <em>negocio.</em>
+            </h2>
+            <p className="services__lead reveal">
+              Desde una web o una tienda online hasta el contenido de tus redes. Elegí por dónde
+              empezar y nosotros nos encargamos de hacerlo realidad.
+            </p>
+          </div>
+        </div>
+
         {mainServices.map((service) => (
           <article
             className={`wpanel wpanel--${service.theme} spanel`}

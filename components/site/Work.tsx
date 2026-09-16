@@ -1,86 +1,52 @@
 const projects = [
   {
-    theme: "light",
     stamp: "01",
-    year: "2026",
-    type: "Producto digital / E-commerce / Operación",
-    title: (
-      <>
-        Virtual <em>catálogo</em>
-      </>
-    ),
-    copy: "Stock, pedidos, depósitos y experiencia de compra en una sola lógica. Tecnología aplicada a una operación real.",
-    tags: ["Producto", "E-commerce", "Operación"],
+    title: "Virtual Catálogo",
+    type: "Producto digital / E-commerce",
+    copy: "Stock, pedidos, depósitos y experiencia de compra en una sola lógica.",
   },
   {
-    theme: "dark",
     stamp: "02",
-    year: "2026",
+    title: "Wally Billing",
     type: "SaaS / UX / Automatización",
-    title: (
-      <>
-        Wally <em>billing</em>
-      </>
-    ),
-    copy: "Facturación pensada para personas que no quieren pensar en facturación. Flujo simple, estructura sólida.",
-    tags: ["SaaS", "UX", "Automatización"],
+    copy: "Facturación pensada para personas que no quieren pensar en facturación.",
   },
   {
-    theme: "pink",
     stamp: "03",
-    year: "2026",
+    title: "SalaYa",
     type: "Branding / Web / Experiencia",
-    title: (
-      <>
-        Salaya <em>salas</em>
-      </>
-    ),
-    copy: "Una marca y un producto para ordenar turnos, adicionales y operación en salas de ensayo.",
-    tags: ["Marca", "Web", "Producto"],
+    copy: "Una marca y un producto para ordenar turnos, adicionales y operación.",
   },
 ] as const;
 
 export function Work() {
   return (
-    <section className="work" id="trabajo">
-      <div className="work__intro section-pad">
-        <p className="kicker reveal">Selección / trabajo</p>
+    <section className="work section-pad" id="proyectos">
+      <div className="work__intro">
+        <p className="kicker reveal">Proyectos / selección</p>
         <h2 className="display reveal">
-          Proyectos que
+          Lo que ya
           <br />
-          <em>se mueven.</em>
+          <em>hicimos.</em>
         </h2>
+        <p className="work__lead reveal">
+          Casos reales que respaldan lo que podemos construir para tu negocio.
+        </p>
       </div>
 
-      <div className="work__stack">
-      {projects.map((project) => (
-        <article
-          className={`wpanel wpanel--${project.theme}`}
-          data-panel
-          key={project.stamp}
-        >
-          <span className="wpanel__mark" aria-hidden="true">
-            {project.stamp}
-          </span>
-          <div className="wpanel__in">
-            <p className="wpanel__idx">
-              {project.stamp} / 03 · {project.year}
-            </p>
-            <div>
-              <p className="wpanel__type">{project.type}</p>
-              <h3 className="wpanel__title">{project.title}</h3>
+      <div className="work__grid">
+        {projects.map((project) => (
+          <article className="project reveal" key={project.stamp}>
+            <div className="project__visual" aria-hidden="true">
+              <span className="project__stamp">{project.stamp}</span>
             </div>
-            <div className="wpanel__meta">
-              <p>{project.copy}</p>
-              <div className="wpanel__tags">
-                {project.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
+            <div className="project__body">
+              <p className="project__type">{project.type}</p>
+              <h3 className="project__title">{project.title}</h3>
+              <p className="project__copy">{project.copy}</p>
             </div>
-          </div>
-        </article>
-      ))}
+          </article>
+        ))}
       </div>
     </section>
   );

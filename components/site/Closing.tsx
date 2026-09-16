@@ -1,5 +1,5 @@
-import { BuenosAiresClock } from "./BuenosAiresClock";
 import { siteConfig } from "@/lib/site-config";
+import { whatsappHref } from "@/lib/whatsapp";
 
 export function Closing() {
   return (
@@ -18,12 +18,16 @@ export function Closing() {
           </span>
         </h2>
         <div className="closing__bottom reveal">
-          <a className="contact-pill" href={`mailto:${siteConfig.email}`}>
-            {siteConfig.email} <span>↗</span>
+          <a
+            className="contact-pill"
+            href={whatsappHref("general")}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Escribinos por WhatsApp <span>↗</span>
           </a>
           <div className="closing__meta">
             <span>{siteConfig.location}</span>
-            <span>Disponible para proyectos seleccionados</span>
           </div>
         </div>
 
@@ -31,7 +35,9 @@ export function Closing() {
           <div className="reveal">
             <h3>Escribinos</h3>
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-            <a href={siteConfig.phoneHref}>{siteConfig.phone}</a>
+            <a href={whatsappHref("general")} target="_blank" rel="noreferrer">
+              {siteConfig.phone}
+            </a>
           </div>
           <div className="reveal">
             <h3>Estudio</h3>
@@ -47,8 +53,7 @@ export function Closing() {
             ))}
           </div>
           <div className="reveal">
-            <h3>Ahora en Buenos Aires</h3>
-            <BuenosAiresClock />
+            <h3>Respuesta</h3>
             <p>Respondemos en menos de 24 h</p>
           </div>
         </div>

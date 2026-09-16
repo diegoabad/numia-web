@@ -3,9 +3,7 @@ import { IsoMark } from "./IsoMark";
 import { Marquee } from "./Marquee";
 
 const claimTokens = [
-  { text: "Creamos", accent: false },
-  { text: "y", accent: false },
-  { text: "desarrollamos", accent: false },
+  { text: "Construimos", accent: false },
   { text: "la", accent: false },
   { text: "presencia digital", accent: true },
   { text: "de", accent: false },
@@ -19,9 +17,7 @@ const claimTokens = [
   { text: "redes sociales,", accent: true },
   { text: "identidad visual", accent: true },
   { text: "y", accent: false },
-  { text: "soluciones digitales", accent: true },
-  { text: "a", accent: false },
-  { text: "medida.", accent: true },
+  { text: "desarrollo a medida.", accent: true },
 ] as const;
 
 export function Hero() {

@@ -77,16 +77,7 @@ export function SiteRuntime() {
 
   useEffect(() => {
     const parallax = [...document.querySelectorAll<HTMLElement>("[data-parallax]")];
-    const mtrack = document.getElementById("mtrack");
-    const manifestoWords = [
-      ...document.querySelectorAll<HTMLElement>("#mtext span"),
-    ];
-    const reduced = prefersReducedMotion();
     let ticking = false;
-
-    if (reduced) {
-      manifestoWords.forEach((word) => word.classList.add("lit"));
-    }
 
     const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 
@@ -97,21 +88,6 @@ export function SiteRuntime() {
         const max = document.documentElement.scrollHeight - window.innerHeight;
         const p = clamp(max > 0 ? window.scrollY / max : 0, 0, 1);
         progressRef.current.style.transform = `scaleX(${p.toFixed(4)})`;
-      }
-
-      if (!reduced && mtrack && manifestoWords.length) {
-        const trackRect = mtrack.getBoundingClientRect();
-        const pin = mtrack.querySelector<HTMLElement>(".manifesto__pin");
-        const pinH = pin?.offsetHeight ?? window.innerHeight;
-        const progress = clamp(
-          -trackRect.top / Math.max(1, trackRect.height - pinH),
-          0,
-          1,
-        );
-        const litCount = Math.round(progress * manifestoWords.length * 1.18);
-        manifestoWords.forEach((word, index) => {
-          word.classList.toggle("lit", index < litCount);
-        });
       }
 
       parallax.forEach((el) => {

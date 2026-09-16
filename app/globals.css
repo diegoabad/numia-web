@@ -662,21 +662,21 @@ button {
 }
 
 .manifesto__lead {
-  margin: 0 0 22px;
+  margin: 0 0 36px;
   font-size: clamp(1.85rem, 3.8vw, 3.4rem);
   line-height: 1.12;
   letter-spacing: -0.04em;
   font-weight: 560;
-  max-width: 18ch;
+  max-width: min(22ch, 100%);
   color: #fff;
 }
 
 .manifesto__text {
   font-size: clamp(1.15rem, 2.2vw, 1.75rem);
-  line-height: 1.35;
+  line-height: 1.4;
   letter-spacing: -0.025em;
   font-weight: 400;
-  max-width: 36ch;
+  max-width: min(52ch, 100%);
   margin: 0;
 }
 

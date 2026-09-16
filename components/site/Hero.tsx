@@ -2,26 +2,43 @@ import type { CSSProperties } from "react";
 import { IsoMark } from "./IsoMark";
 import { Marquee } from "./Marquee";
 
-const claim =
-  "Diseñamos y construimos marcas, webs y software a medida para negocios que necesitan algo más que una pantalla bonita.";
-
-const claimWords = claim.split(" ");
+const claimTokens = [
+  { text: "Creamos", accent: false },
+  { text: "y", accent: false },
+  { text: "desarrollamos", accent: false },
+  { text: "la", accent: false },
+  { text: "presencia digital", accent: true },
+  { text: "de", accent: false },
+  { text: "tu", accent: false },
+  { text: "negocio", accent: true },
+  { text: "a", accent: false },
+  { text: "través", accent: false },
+  { text: "del", accent: false },
+  { text: "diseño web,", accent: true },
+  { text: "e-commerce,", accent: true },
+  { text: "redes sociales,", accent: true },
+  { text: "identidad visual", accent: true },
+  { text: "y", accent: false },
+  { text: "soluciones digitales", accent: true },
+  { text: "a", accent: false },
+  { text: "medida.", accent: true },
+] as const;
 
 export function Hero() {
   return (
     <section className="hero" id="inicio">
       <div className="hero__title-wrap">
         <div className="hero__title-block">
-          <h1 className="hero__title" aria-label="Diseño, código y negocio">
+          <h1 className="hero__title" aria-label="Creamos, diseñamos y conectamos">
             <span className="line-mask">
-              <span>DISEÑO</span>
+              <span>CREAMOS</span>
             </span>
             <span className="line-mask line--indent">
-              <span className="hero__accent">CÓDIGO</span>
+              <span className="hero__accent">DISEÑAMOS</span>
             </span>
             <span className="line-mask">
               <span>
-                NEGOCIO<span className="hero__dot">.</span>
+                CONECTAMOS<span className="hero__dot">.</span>
               </span>
             </span>
           </h1>
@@ -31,9 +48,13 @@ export function Hero() {
         </div>
       </div>
       <p className="hero__claim">
-        {claimWords.map((word, i) => (
-          <span key={`${word}-${i}`} style={{ "--i": i } as CSSProperties}>
-            {word}
+        {claimTokens.map((token, i) => (
+          <span
+            key={`${token.text}-${i}`}
+            className={token.accent ? "hero__claim-key" : undefined}
+            style={{ "--i": i } as CSSProperties}
+          >
+            {token.text}
           </span>
         ))}
       </p>

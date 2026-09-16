@@ -53,9 +53,9 @@ export default function OpenGraphImage() {
               textTransform: "uppercase",
             }}
           >
-            <div style={{ display: "flex" }}>Diseño</div>
-            <div style={{ display: "flex" }}>Código</div>
-            <div style={{ display: "flex" }}>Negocio.</div>
+            <div style={{ display: "flex" }}>Creamos</div>
+            <div style={{ display: "flex" }}>Diseñamos</div>
+            <div style={{ display: "flex" }}>Conectamos.</div>
           </div>
           <div
             style={{

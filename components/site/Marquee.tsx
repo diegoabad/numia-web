@@ -1,20 +1,30 @@
 const items = [
-  "Diseño",
-  "Código",
-  "Marca",
-  "Producto",
-  "Web",
-  "Software",
-  "Negocio",
+  "Diseño web",
   "E-commerce",
+  "Redes sociales",
+  "Branding",
+  "Identidad visual",
+  "Desarrollo web",
+  "Aplicaciones",
+  "Diseño gráfico",
+  "Packaging",
+  "Sistemas a medida",
+  "Automatizaciones",
+  "Landing pages",
+  "Tiendas online",
+  "Contenido digital",
+  "Integraciones",
 ] as const;
+
+/** Dos vueltas del set: alcanza para llenar el viewport y mantener el loop sin huecos. */
+const loopItems = [...items, ...items];
 
 function Track({ id }: { id: string }) {
   return (
     <div className="marquee__set">
-      {items.flatMap((label) => [
-        <span key={`${id}-${label}`}>{label}</span>,
-        <i key={`${id}-${label}-dot`} />,
+      {loopItems.flatMap((label, index) => [
+        <span key={`${id}-${label}-${index}`}>{label}</span>,
+        <i key={`${id}-${label}-${index}-dot`} />,
       ])}
     </div>
   );

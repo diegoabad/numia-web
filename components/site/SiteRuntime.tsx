@@ -8,41 +8,51 @@ function prefersReducedMotion() {
 }
 
 export function SiteRuntime() {
-  const [count, setCount] = useState("00");
   const [done, setDone] = useState(false);
   const [visible, setVisible] = useState(true);
   const barRef = useRef<HTMLSpanElement>(null);
+  const countRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const body = document.body;
     const reduced = prefersReducedMotion();
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem("numia-ready") === "1";
+    } catch {
+      seen = false;
+    }
 
-    if (reduced) {
+    if (reduced || seen) {
       body.classList.add("is-loaded");
       setVisible(false);
-    } else {
-      const start = performance.now();
-      let frame = 0;
-      const tick = (now: number) => {
-        const t = Math.min(1, (now - start) / 1050);
-        const eased = 1 - Math.pow(1 - t, 3);
-        const n = Math.floor(eased * 100);
-        setCount(String(n).padStart(2, "0"));
-        if (barRef.current) barRef.current.style.width = `${n}%`;
-        if (t < 1) {
-          frame = requestAnimationFrame(tick);
-        } else {
-          window.setTimeout(() => {
-            setDone(true);
-            body.classList.add("is-loaded");
-            window.setTimeout(() => setVisible(false), 1100);
-          }, 180);
-        }
-      };
-      frame = requestAnimationFrame(tick);
-      return () => cancelAnimationFrame(frame);
+      return;
     }
+
+    const start = performance.now();
+    let frame = 0;
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / 420);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const n = Math.floor(eased * 100);
+      if (countRef.current) countRef.current.textContent = String(n).padStart(2, "0");
+      if (barRef.current) barRef.current.style.width = `${n}%`;
+      if (t < 1) {
+        frame = requestAnimationFrame(tick);
+      } else {
+        try {
+          sessionStorage.setItem("numia-ready", "1");
+        } catch {
+          /* ignore */
+        }
+        setDone(true);
+        body.classList.add("is-loaded");
+        window.setTimeout(() => setVisible(false), 420);
+      }
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
@@ -167,7 +177,6 @@ export function SiteRuntime() {
       <div className="scroll-progress" aria-hidden="true">
         <i ref={progressRef} />
       </div>
-      <div className="noise" aria-hidden="true" />
       {visible ? (
         <div className={`preloader${done ? " is-done" : ""}`} aria-hidden="true">
           <div className="preloader__inner">
@@ -175,7 +184,9 @@ export function SiteRuntime() {
             <div className="preloader__bar">
               <i ref={barRef} />
             </div>
-            <div className="preloader__count">{count}</div>
+            <div className="preloader__count" ref={countRef}>
+              00
+            </div>
           </div>
         </div>
       ) : null}

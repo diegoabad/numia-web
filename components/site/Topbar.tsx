@@ -5,7 +5,14 @@ export function Topbar() {
     <header className="topbar">
       <a className="brand" href="#inicio" aria-label="Numia, volver al inicio">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/logo.png" alt="Numia Digital Studio" />
+        <img
+          src="/images/logo.png"
+          alt="Numia Digital Studio"
+          width={178}
+          height={27}
+          fetchPriority="high"
+          decoding="async"
+        />
       </a>
       <div className="topbar__meta">
         <div>

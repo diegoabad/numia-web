@@ -8,9 +8,9 @@ export const siteConfig = {
   shortName: "Numia",
   title: "Numia — Digital Studio",
   description:
-    "Numia Digital Studio — webs, software a medida, identidad visual y experiencias digitales.",
+    "Creamos y desarrollamos la presencia digital de marcas y negocios a través del diseño web, e-commerce, redes sociales, identidad visual y soluciones digitales a medida.",
   ogDescription:
-    "Construimos marcas, webs y software a medida para negocios que necesitan algo más que una pantalla bonita.",
+    "Creamos y desarrollamos la presencia digital de marcas y negocios a través del diseño web, e-commerce, redes sociales, identidad visual y soluciones digitales a medida.",
   url: siteUrl,
   locale: "es_AR",
   language: "es",

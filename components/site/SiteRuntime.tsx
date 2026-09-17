@@ -56,23 +56,65 @@ export function SiteRuntime() {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const targets = [
+      ...document.querySelectorAll<HTMLElement>(".reveal, .split-reveal, .closing__title"),
+    ];
+    if (!targets.length) return;
+
+    const reduced = prefersReducedMotion();
+    if (reduced) {
+      targets.forEach((el) => el.classList.add("is-inview"));
+      return;
+    }
+
+    let observer: IntersectionObserver;
+
+    const reveal = (el: HTMLElement) => {
+      if (el.classList.contains("is-inview")) return;
+      el.classList.add("is-inview");
+      if (el.classList.contains("stat")) {
+        animateCounter(el.querySelector("[data-counter]"));
+      }
+      observer?.unobserve(el);
+    };
+
+    const shouldReveal = (el: HTMLElement) => {
+      const rect = el.getBoundingClientRect();
+      // Entró al viewport o ya se pasó (scroll rápido)
+      return rect.top < window.innerHeight * 0.98;
+    };
+
+    observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-inview");
-          if (entry.target.classList.contains("stat")) {
-            animateCounter(entry.target.querySelector("[data-counter]"));
-          }
-          observer.unobserve(entry.target);
+          const el = entry.target as HTMLElement;
+          if (entry.isIntersecting || shouldReveal(el)) reveal(el);
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+      { threshold: [0, 0.01, 0.1], rootMargin: "12% 0px 18% 0px" },
     );
-    document.querySelectorAll(".reveal, .split-reveal, .closing__title").forEach((el) => {
-      observer.observe(el);
+
+    targets.forEach((el) => {
+      if (shouldReveal(el)) reveal(el);
+      else observer.observe(el);
     });
-    return () => observer.disconnect();
+
+    const sweep = () => {
+      targets.forEach((el) => {
+        if (!el.classList.contains("is-inview") && shouldReveal(el)) reveal(el);
+      });
+    };
+
+    window.addEventListener("scroll", sweep, { passive: true });
+    window.addEventListener("resize", sweep);
+    const boot = window.setTimeout(sweep, 120);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(boot);
+      window.removeEventListener("scroll", sweep);
+      window.removeEventListener("resize", sweep);
+    };
   }, []);
 
   useEffect(() => {

@@ -42,17 +42,40 @@ export function ContactWhatsAppPill({
     const el = ref.current;
     if (!el) return;
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.classList.add("is-inview");
+      return;
+    }
+
+    const reveal = () => {
+      el.classList.add("is-inview");
+      observer.disconnect();
+    };
+
+    const shouldReveal = () => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight * 0.98;
+    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return;
-        el.classList.add("is-inview");
-        observer.disconnect();
+        if (entry.isIntersecting || shouldReveal()) reveal();
       },
-      { threshold: 0.05, rootMargin: "40px 0px 20% 0px" },
+      { threshold: [0, 0.01, 0.05], rootMargin: "20% 0px 25% 0px" },
     );
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    if (shouldReveal()) reveal();
+    else observer.observe(el);
+
+    const onScroll = () => {
+      if (!el.classList.contains("is-inview") && shouldReveal()) reveal();
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (

@@ -2412,13 +2412,12 @@ button {
   }
   .hero {
     position: relative;
-    /* --hero-lock-h: px fijos al cargar (SiteRuntime). No crece al scrollear. */
-    height: var(--hero-lock-h, 100svh);
-    min-height: var(--hero-lock-h, 100svh);
-    max-height: var(--hero-lock-h, 100svh);
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
     justify-content: space-between;
     gap: 0;
-    padding-top: calc(var(--topbar-h) + 40px);
+    padding-top: calc(var(--topbar-h) + 28px);
     padding-bottom: max(28px, env(safe-area-inset-bottom, 0px));
     overflow: hidden;
   }
@@ -2468,9 +2467,9 @@ button {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: clamp(20px, 3.2svh, 28px);
+    gap: clamp(32px, 4.5svh, 44px);
     flex: 1 1 auto;
-    margin-top: clamp(36px, 5.5svh, 48px);
+    margin-top: clamp(24px, 3.5svh, 36px);
     transform: none;
     padding-right: 0;
     padding-bottom: 0;

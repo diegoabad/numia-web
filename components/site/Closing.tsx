@@ -62,7 +62,7 @@ export function Closing() {
         </div>
 
         <div className="foot">
-          <span className="foot__copy">© 2026 Numia Digital Studio</span>
+          <span className="foot__copy">© 2026 {siteConfig.name}</span>
           <p className="foot__made">
             Hecho con
             <span className="sr-only"> amor </span>

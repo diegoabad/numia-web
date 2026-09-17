@@ -6,7 +6,7 @@ export function Hero() {
     <section className="hero" id="inicio">
       <div className="hero__title-wrap">
         <div className="hero__title-block">
-          <h1 className="hero__title" aria-label="Creamos, diseñamos y conectamos">
+          <p className="hero__title" aria-hidden="true">
             <span className="line-mask">
               <span>CREAMOS</span>
             </span>
@@ -18,7 +18,7 @@ export function Hero() {
                 CONECTAMOS<span className="hero__dot">.</span>
               </span>
             </span>
-          </h1>
+          </p>
           <div className="hero__visual">
             <IsoMark className="hero__iso mk--draw" />
           </div>
@@ -27,18 +27,18 @@ export function Hero() {
 
       <div className="hero__bottom">
         <div className="hero__copy-row">
-          <p className="hero__lead">
-            Creamos <strong>soluciones digitales</strong> para hacer crecer{" "}
+          <h1 className="hero__lead">
+            Diseño <strong>web</strong> y <strong>soluciones digitales</strong> para hacer crecer{" "}
             <em className="hero__lead-end">tu negocio.</em>
-          </p>
+          </h1>
           <div className="hero__body">
             <p>
-              Diseñamos <strong>páginas web, tiendas online y contenido para redes</strong> para hacer
-              crecer tu negocio.
+              Creamos <strong>páginas web, tiendas online y contenido para redes</strong> que ayudan a
+              tu marca a verse mejor, comunicar con claridad y llegar a más clientes.
             </p>
             <p>
-              También desarrollamos <strong>automatizaciones y soluciones con IA</strong> para
-              simplificar y mejorar el día a día de tu negocio.
+              Además, desarrollamos <strong>software, automatizaciones y soluciones con IA</strong>{" "}
+              para simplificar procesos y ahorrar tiempo.
             </p>
           </div>
         </div>

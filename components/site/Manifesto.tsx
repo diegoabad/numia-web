@@ -5,7 +5,7 @@ import { useEffect } from "react";
 const lead = "Tenés una idea. Nosotros te ayudamos a hacerla realidad.";
 
 const bodyParagraphs = [
-  "En Numia combinamos diseño y tecnología para crear soluciones pensadas alrededor de cada negocio.",
+  "En Numia Digital Studio combinamos diseño y tecnología para crear soluciones pensadas alrededor de cada negocio.",
   "Podemos ayudarte a crear tu página web, empezar a vender online, mejorar la imagen de tu marca o desarrollar una herramienta que simplifique tu trabajo.",
   "Vos nos contás qué necesitás. Nosotros buscamos la mejor manera de hacerlo realidad.",
 ] as const;

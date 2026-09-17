@@ -1,4 +1,5 @@
 import { whatsappHref } from "@/lib/whatsapp";
+import { siteConfig } from "@/lib/site-config";
 
 export function WhatsAppButton() {
   return (
@@ -7,7 +8,7 @@ export function WhatsAppButton() {
       href={whatsappHref("general")}
       target="_blank"
       rel="noreferrer"
-      aria-label="Escribinos por WhatsApp"
+      aria-label={`Escribinos por WhatsApp — ${siteConfig.name}`}
     >
       <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
         <path

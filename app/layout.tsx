@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: siteConfig.title,
-    template: `%s | ${siteConfig.shortName}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: siteConfig.shortName,
+    title: siteConfig.name,
     statusBarStyle: "default",
   },
   category: "business",

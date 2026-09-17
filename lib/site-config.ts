@@ -6,11 +6,11 @@ export const siteUrl = rawUrl.replace(/\/$/, "");
 export const siteConfig = {
   name: "Numia Digital Studio",
   shortName: "Numia",
-  title: "Numia Digital Studio — Diseño web, e-commerce y soluciones digitales",
+  title: "Diseño Web, Ecommerce y Software en Argentina | Numia Digital Studio",
   description:
-    "Estudio digital en Buenos Aires. Creamos sitios web, tiendas online, contenido para redes, automatizaciones con IA y soluciones a medida para hacer crecer tu negocio.",
+    "Numia Digital Studio crea páginas web, tiendas online, contenido para redes, software y automatizaciones con IA para negocios de toda Argentina. Conocé nuestros servicios.",
   ogDescription:
-    "Diseño web, e-commerce, redes sociales y automatizaciones con IA. Un estudio digital en Buenos Aires para transformar tu idea en algo concreto.",
+    "Numia Digital Studio crea páginas web, tiendas online, contenido para redes, software y automatizaciones con IA para negocios de toda Argentina.",
   url: siteUrl,
   locale: "es_AR",
   language: "es",
@@ -25,8 +25,8 @@ export const siteConfig = {
     { label: "Facebook", href: "https://www.facebook.com/numia.studio" },
   ],
   keywords: [
-    "Numia",
     "Numia Digital Studio",
+    "Numia",
     "diseño web",
     "desarrollo web",
     "páginas web",

@@ -11,7 +11,9 @@ import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: siteConfig.title,
+  title: {
+    absolute: siteConfig.title,
+  },
   description: siteConfig.description,
   alternates: {
     canonical: "/",

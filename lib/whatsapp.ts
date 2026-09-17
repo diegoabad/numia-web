@@ -7,16 +7,14 @@ export type WhatsAppIntent =
   | "redes"
   | "presupuesto";
 
+const brand = siteConfig.name;
+
 const messages: Record<WhatsAppIntent, string> = {
-  general:
-    "Hola! Estuve mirando la página web de Numia y me gustaría charlar sobre un proyecto.",
-  web: "Hola! Estuve mirando la página web de Numia y me interesa el servicio de Diseño Web.",
-  ecommerce:
-    "Hola! Estuve mirando la página web de Numia y me interesa el servicio de E-commerce.",
-  redes:
-    "Hola! Estuve mirando la página web de Numia y me interesa el servicio de Redes Sociales.",
-  presupuesto:
-    "Hola! Estuve mirando la página web de Numia y me gustaría pedir un presupuesto personalizado.",
+  general: `Hola! Estuve mirando la página web de ${brand} y me gustaría charlar sobre un proyecto.`,
+  web: `Hola! Estuve mirando la página web de ${brand} y me interesa el servicio de Diseño Web.`,
+  ecommerce: `Hola! Estuve mirando la página web de ${brand} y me interesa el servicio de E-commerce.`,
+  redes: `Hola! Estuve mirando la página web de ${brand} y me interesa el servicio de Redes Sociales.`,
+  presupuesto: `Hola! Estuve mirando la página web de ${brand} y me gustaría pedir un presupuesto personalizado.`,
 };
 
 export function whatsappHref(intent: WhatsAppIntent = "general") {

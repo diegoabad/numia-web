@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { navLinks } from "@/lib/nav-links";
+import { siteConfig } from "@/lib/site-config";
 
 export function Topbar() {
   return (
     <header className="topbar">
-      <a className="brand" href="#inicio" aria-label="Numia, volver al inicio">
+      <a className="brand" href="#inicio" aria-label={`${siteConfig.name}, volver al inicio`}>
         <Image
           src="/images/logo-header.webp"
-          alt="Numia Digital Studio"
+          alt={siteConfig.name}
           width={178}
           height={27}
           priority

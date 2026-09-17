@@ -12,16 +12,23 @@ export function JsonLd() {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
         name: siteConfig.name,
-        alternateName: siteConfig.shortName,
+        legalName: siteConfig.name,
+        alternateName: ["Numia", "Numia Studio"],
         url: siteUrl,
         logo: {
           "@type": "ImageObject",
           url: logoUrl,
+          caption: siteConfig.name,
         },
         image: logoUrl,
         email: siteConfig.email,
         telephone: siteConfig.phoneHref.replace("tel:", ""),
         sameAs,
+        areaServed: "Argentina",
+        brand: {
+          "@type": "Brand",
+          name: siteConfig.name,
+        },
         address: {
           "@type": "PostalAddress",
           addressLocality: "Buenos Aires",
@@ -92,7 +99,7 @@ export function JsonLd() {
         sameAs,
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "Servicios Numia",
+          name: `Servicios ${siteConfig.name}`,
           itemListElement: [
             {
               "@type": "Offer",
@@ -101,6 +108,7 @@ export function JsonLd() {
                 name: "Diseño web",
                 description:
                   "Sitios web, landing pages y webs profesionales pensadas para hacer crecer tu negocio.",
+                provider: { "@id": `${siteUrl}/#organization` },
               },
             },
             {
@@ -110,6 +118,7 @@ export function JsonLd() {
                 name: "E-commerce",
                 description:
                   "Tiendas online y catálogos para vender productos con medios de pago y gestión de pedidos.",
+                provider: { "@id": `${siteUrl}/#organization` },
               },
             },
             {
@@ -119,6 +128,7 @@ export function JsonLd() {
                 name: "Redes sociales",
                 description:
                   "Contenido mensual para feed e historias, alineado a la identidad de tu marca.",
+                provider: { "@id": `${siteUrl}/#organization` },
               },
             },
             {
@@ -128,6 +138,7 @@ export function JsonLd() {
                 name: "Soluciones a medida",
                 description:
                   "Diseño gráfico, desarrollo a medida, apps mobile y automatizaciones con IA.",
+                provider: { "@id": `${siteUrl}/#organization` },
               },
             },
           ],

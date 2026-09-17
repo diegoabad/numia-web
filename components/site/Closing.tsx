@@ -25,11 +25,11 @@ export function Closing() {
         </div>
 
         <div className="closing__cols">
-          <div className="reveal">
+          <div>
             <h3>Escribinos</h3>
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           </div>
-          <div className="reveal">
+          <div>
             <h3>Estudio</h3>
             <p>
               {siteConfig.location}
@@ -37,7 +37,7 @@ export function Closing() {
               {siteConfig.hours}
             </p>
           </div>
-          <div className="reveal">
+          <div>
             <h3>Redes</h3>
             <nav className="closing__socials" aria-label="Redes">
               {siteConfig.socials.map((social) => (

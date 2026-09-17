@@ -1445,11 +1445,11 @@ button {
 /* closing */
 .closing {
   position: relative;
-  min-height: var(--section-h);
+  min-height: 0;
   max-height: none;
   background: #101012;
   color: #fff;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
 }
@@ -1517,7 +1517,7 @@ button {
   position: relative;
   z-index: 3;
   width: 100%;
-  flex: 1;
+  flex: none;
   display: flex;
   flex-direction: column;
   padding-top: calc(var(--topbar-h) + 48px);
@@ -1704,10 +1704,12 @@ button {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr) minmax(0, 1fr);
   gap: clamp(20px, 3vw, 40px);
-  margin-top: auto;
+  margin-top: clamp(40px, 6vh, 72px);
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   padding-top: 22px;
+  padding-bottom: 4px;
   align-items: start;
+  flex-shrink: 0;
 }
 
 .closing__cols h3 {

@@ -972,7 +972,7 @@ button {
 .wpanel__mark {
   position: absolute;
   right: var(--page-side);
-  top: 42%;
+  top: calc(var(--section-inner) * 0.42);
   font-size: clamp(120px, 16vw, 220px);
   line-height: 0.7;
   font-weight: 700;
@@ -2185,8 +2185,8 @@ button {
   .wpanel__mark {
     font-size: clamp(72px, 28vw, 140px);
     right: 2vw;
-    top: auto;
-    bottom: 18%;
+    top: calc(var(--section-inner) * 0.72);
+    bottom: auto;
     opacity: 0.08;
   }
   .wpanel__in.spanel__in {
@@ -2209,10 +2209,12 @@ button {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  .spanel__plans:has(.spanel__plan:nth-child(2):last-child),
-  .spanel__plans--extras {
-    grid-template-columns: 1fr 1fr;
+  .spanel__plans:has(.spanel__plan:nth-child(2):last-child) {
+    grid-template-columns: 1fr;
     max-width: none;
+  }
+  .spanel__plans--extras {
+    grid-template-columns: 1fr;
   }
   .spanel__plan {
     padding-top: 10px;
@@ -2238,16 +2240,19 @@ button {
     line-height: 1.4;
   }
   .services__intro {
+    height: min(calc(100svh - var(--topbar-h) - 18vh), 620px);
+    min-height: 0;
+    max-height: none;
     justify-content: flex-start;
-    padding-top: 28px;
-    padding-bottom: 36px;
+    padding-top: 26px;
+    padding-bottom: 32px;
   }
   .services__intro .kicker {
-    margin-bottom: clamp(28px, 5.5vh, 48px);
+    margin-bottom: clamp(18px, 3.5vh, 32px);
   }
   .services__intro-grid {
     grid-template-columns: 1fr;
-    gap: clamp(28px, 6vh, 52px);
+    gap: clamp(20px, 4vh, 36px);
     flex: 1;
     align-content: start;
     min-height: 0;

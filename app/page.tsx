@@ -7,7 +7,6 @@ import { Services } from "@/components/site/Services";
 import { SiteRuntime } from "@/components/site/SiteRuntime";
 import { Topbar } from "@/components/site/Topbar";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
-import { Work } from "@/components/site/Work";
 
 export default function Home() {
   return (
@@ -18,7 +17,6 @@ export default function Home() {
         <Hero />
         <Manifesto />
         <Services />
-        <Work />
         <Process />
         <Closing />
       </main>

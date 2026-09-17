@@ -103,9 +103,10 @@ export function SiteRuntime() {
         const speed = Number.parseFloat(el.dataset.parallax || "0.1");
         const r = el.getBoundingClientRect();
         const center = r.top + r.height / 2 - window.innerHeight / 2;
-        el.style.transform = `translate3d(0, ${center * -speed}px, 0)`;
+        el.style.transform = `translate3d(0, ${(center * -speed).toFixed(2)}px, 0)`;
       });
 
+      // Solo sincroniza paneles sticky cuando hay scroll reciente
       syncStuckPanels();
     };
 
@@ -139,8 +140,16 @@ export function SiteRuntime() {
       panel.classList.toggle("open", open);
       menuBtn.setAttribute("aria-expanded", String(open));
       menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-      panel.setAttribute("aria-hidden", String(!open));
+      menuBtn.setAttribute("aria-controls", "mobile-panel");
+      panel.querySelectorAll("a").forEach((a) => {
+        if (open) a.removeAttribute("tabindex");
+        else a.setAttribute("tabindex", "-1");
+      });
       document.body.classList.toggle("is-menu-open", open);
+      if (open) {
+        const first = panel.querySelector<HTMLAnchorElement>("a");
+        first?.focus();
+      }
     };
     const toggle = () => setOpen(!panel.classList.contains("open"));
     const close = () => setOpen(false);

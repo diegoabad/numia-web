@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ContactWhatsAppPill } from "./ContactWhatsAppPill";
 import { siteConfig } from "@/lib/site-config";
 import { whatsappHref } from "@/lib/whatsapp";
@@ -15,7 +16,7 @@ export function Closing() {
               </span>
               <span className="line-mask">
                 <span>
-                  tu <span className="closing__accent">idea.</span>
+                  <em>tu idea.</em>
                 </span>
               </span>
             </h2>
@@ -64,8 +65,9 @@ export function Closing() {
           <span className="foot__copy">© 2026 Numia Digital Studio</span>
           <p className="foot__made">
             Hecho con
-            <span className="foot__heart" aria-label="amor">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <span className="sr-only"> amor </span>
+            <span className="foot__heart" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false" width="14" height="14">
                 <path
                   fill="currentColor"
                   d="M12 21s-6.7-4.35-9.33-8.2C.8 10.1 1.2 6.7 4.05 5.2c1.86-.98 4.1-.5 5.45 1.12L12 9.1l2.5-2.78c1.35-1.62 3.59-2.1 5.45-1.12 2.85 1.5 3.25 4.9 1.38 7.6C18.7 16.65 12 21 12 21z"
@@ -73,8 +75,13 @@ export function Closing() {
               </svg>
             </span>
             por
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo-numia-footer.png" alt={siteConfig.name} />
+            <Image
+              src="/images/logo-footer.webp"
+              alt={siteConfig.name}
+              width={52}
+              height={12}
+              sizes="52px"
+            />
           </p>
           <span className="foot__spacer" aria-hidden="true" />
         </div>

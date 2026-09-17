@@ -8,18 +8,26 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-inter-tight",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: siteConfig.backgroundColor,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: siteConfig.backgroundColor },
+    { media: "(prefers-color-scheme: dark)", color: "#0c0c0e" },
+  ],
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
@@ -29,20 +37,25 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
+  applicationName: siteConfig.name,
   keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.name, url: siteUrl }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
   formatDetection: {
-    email: true,
-    address: true,
-    telephone: true,
+    email: false,
+    address: false,
+    telephone: false,
   },
   icons: {
-    icon: [{ url: "/favicon.png?v=2", type: "image/png", sizes: "296x320" }],
-    shortcut: "/favicon.png?v=2",
-    apple: [{ url: "/apple-touch-icon.png?v=2", type: "image/png" }],
+    icon: [
+      { url: "/favicon.ico?v=5", sizes: "48x48" },
+      { url: "/favicon.png?v=5", type: "image/png", sizes: "296x320" },
+    ],
+    shortcut: "/favicon.ico?v=5",
+    apple: [{ url: "/apple-touch-icon.png?v=5", type: "image/png", sizes: "180x180" }],
   },
+  manifest: "/manifest.webmanifest",
   alternates: {
     canonical: "/",
     languages: {
@@ -75,7 +88,16 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  appleWebApp: {
+    capable: true,
+    title: siteConfig.shortName,
+    statusBarStyle: "default",
+  },
   category: "business",
+  other: {
+    "geo.region": "AR-C",
+    "geo.placename": "Buenos Aires",
+  },
 };
 
 export default function RootLayout({
@@ -84,7 +106,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={siteConfig.language} className={`${interTight.variable} ${manrope.variable}`}>
+    <html lang="es-AR" className={`${interTight.variable} ${manrope.variable}`}>
+      <head>
+        <link rel="dns-prefetch" href="https://wa.me" />
+        <link rel="dns-prefetch" href="https://www.instagram.com" />
+      </head>
       <body>
         <a className="skip-link" href="#contenido-principal">
           Saltar al contenido principal

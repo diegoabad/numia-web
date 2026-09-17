@@ -1,17 +1,17 @@
+import Image from "next/image";
 import { navLinks } from "@/lib/nav-links";
 
 export function Topbar() {
   return (
     <header className="topbar">
       <a className="brand" href="#inicio" aria-label="Numia, volver al inicio">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/logo.png"
+        <Image
+          src="/images/logo-header.webp"
           alt="Numia Digital Studio"
           width={178}
           height={27}
-          fetchPriority="high"
-          decoding="async"
+          priority
+          sizes="178px"
         />
       </a>
       <div className="topbar__meta">
@@ -26,7 +26,13 @@ export function Topbar() {
           </a>
         ))}
       </nav>
-      <button className="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <button
+        className="menu-btn"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-panel"
+      >
         <span />
         <span />
       </button>

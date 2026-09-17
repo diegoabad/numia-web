@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 import { siteConfig } from "@/lib/site-config";
 
-export const alt = siteConfig.name;
+export const alt = `${siteConfig.name} — Creamos, diseñamos y conectamos`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -16,7 +16,7 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          justifyContent: "center",
+          justifyContent: "space-between",
           padding: 72,
           background: "#f7f6f2",
           color: "#0c0c0e",
@@ -25,49 +25,60 @@ export default function OpenGraphImage() {
         <div
           style={{
             display: "flex",
+            fontSize: 20,
+            fontWeight: 600,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: "#ed0a78",
+          }}
+        >
+          Numia Digital Studio
+        </div>
+        <div
+          style={{
+            display: "flex",
             flexDirection: "column",
-            gap: 20,
-            maxWidth: 920,
+            gap: 18,
+            maxWidth: 940,
           }}
         >
           <div
             style={{
               display: "flex",
-              fontSize: 18,
-              fontWeight: 600,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "#ed0a78",
-            }}
-          >
-            Estudio digital · Argentina
-          </div>
-          <div
-            style={{
-              display: "flex",
               flexDirection: "column",
-              fontSize: 72,
+              fontSize: 74,
               fontWeight: 600,
-              lineHeight: 0.9,
-              letterSpacing: "-0.07em",
+              lineHeight: 0.92,
+              letterSpacing: "-0.06em",
               textTransform: "uppercase",
             }}
           >
             <div style={{ display: "flex" }}>Creamos</div>
-            <div style={{ display: "flex" }}>Diseñamos</div>
+            <div style={{ display: "flex", color: "#ed0a78" }}>Diseñamos</div>
             <div style={{ display: "flex" }}>Conectamos.</div>
           </div>
           <div
             style={{
               display: "flex",
-              fontSize: 24,
+              fontSize: 26,
               lineHeight: 1.35,
-              color: "#716e69",
-              maxWidth: 680,
+              color: "#5c5954",
+              maxWidth: 720,
             }}
           >
             {siteConfig.ogDescription}
           </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            fontSize: 18,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "#8a8680",
+          }}
+        >
+          Buenos Aires · Argentina
         </div>
       </div>
     ),

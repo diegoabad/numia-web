@@ -48,12 +48,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico?v=5", sizes: "48x48" },
-      { url: "/favicon.png?v=5", type: "image/png", sizes: "296x320" },
-    ],
-    shortcut: "/favicon.ico?v=5",
-    apple: [{ url: "/apple-touch-icon.png?v=5", type: "image/png", sizes: "180x180" }],
+    icon: [{ url: "/favicon.png?v=6", type: "image/png", sizes: "296x320" }],
+    shortcut: "/favicon.png?v=6",
+    apple: [{ url: "/apple-touch-icon.png?v=6", type: "image/png" }],
   },
   manifest: "/manifest.webmanifest",
   alternates: {

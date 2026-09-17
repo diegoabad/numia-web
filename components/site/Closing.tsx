@@ -66,7 +66,7 @@ export function Closing() {
             </span>
             por
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.png" alt={siteConfig.name} />
+            <img src="/images/logo-numia-footer.png" alt={siteConfig.name} />
           </p>
           <span className="foot__spacer" aria-hidden="true" />
         </div>

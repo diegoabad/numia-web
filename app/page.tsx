@@ -5,7 +5,6 @@ import { MobilePanel } from "@/components/site/MobilePanel";
 import { Process } from "@/components/site/Process";
 import { Services } from "@/components/site/Services";
 import { SiteRuntime } from "@/components/site/SiteRuntime";
-import { Stats } from "@/components/site/Stats";
 import { Topbar } from "@/components/site/Topbar";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Work } from "@/components/site/Work";
@@ -20,7 +19,6 @@ export default function Home() {
         <Manifesto />
         <Services />
         <Work />
-        <Stats />
         <Process />
         <Closing />
       </main>

@@ -12,11 +12,8 @@
   --page-gutter: clamp(24px, 4vw, 72px);
   --page-side: max(var(--page-gutter), calc((100% - var(--page-max)) / 2));
   --section-max: 900px;
-  --section-hold: min(24vh, 160px);
   --section-inner: min(calc(100svh - var(--topbar-h)), var(--section-max));
   --section-h: calc(var(--section-inner) + var(--topbar-h));
-  --section-panel: calc(var(--section-inner) + var(--section-hold));
-  --section-panel-max: calc(var(--section-max) + var(--section-hold));
 }
 
 * {
@@ -390,7 +387,7 @@ button {
   position: relative;
   height: var(--section-h);
   min-height: var(--section-h);
-  max-height: var(--section-h);
+  max-height: calc(var(--section-max) + var(--topbar-h));
   padding: clamp(176px, 22vh, 228px) var(--page-side)
     max(clamp(40px, 6vh, 72px), env(safe-area-inset-bottom));
   display: flex;
@@ -799,8 +796,8 @@ button {
 /* work / proyectos */
 .work {
   background: var(--bg);
-  padding-top: clamp(96px, 12vh, 140px);
-  padding-bottom: clamp(100px, 14vh, 150px);
+  padding-top: 140px;
+  padding-bottom: 150px;
   border-top: 1px solid var(--line);
 }
 
@@ -885,8 +882,7 @@ button {
 .wpanel {
   position: sticky;
   top: var(--topbar-h);
-  height: var(--section-panel);
-  max-height: var(--section-panel-max);
+  height: calc(var(--section-inner) + min(42vh, 240px));
   overflow: clip;
   border-radius: 0;
   box-shadow: 0 -16px 36px -22px rgba(0, 0, 0, 0.18);
@@ -906,7 +902,6 @@ button {
 .services__stack .wpanel:nth-child(4) {
   z-index: 3;
   height: var(--section-inner);
-  max-height: var(--section-max);
 }
 
 .services__stack .wpanel:nth-child(4) .wpanel__in {
@@ -944,7 +939,6 @@ button {
 .wpanel__in {
   position: relative;
   height: var(--section-inner);
-  max-height: var(--section-max);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1096,8 +1090,7 @@ button {
 }
 
 .services__hold {
-  height: var(--section-hold);
-  max-height: 160px;
+  height: 42vh;
   pointer-events: none;
 }
 
@@ -1220,8 +1213,8 @@ button {
 }
 
 .services__extra {
-  padding-top: clamp(90px, 12vh, 120px);
-  padding-bottom: clamp(100px, 14vh, 140px);
+  padding-top: 120px;
+  padding-bottom: 140px;
 }
 
 .services__extra-head {
@@ -1307,8 +1300,8 @@ button {
   position: relative;
   background: var(--pink);
   color: #fff;
-  padding-top: clamp(100px, 14vh, 150px);
-  padding-bottom: clamp(110px, 15vh, 160px);
+  padding-top: 150px;
+  padding-bottom: 160px;
   overflow: clip;
 }
 
@@ -1446,7 +1439,6 @@ button {
 .closing {
   position: relative;
   min-height: var(--section-h);
-  max-height: none;
   background: #101012;
   color: #fff;
   overflow: hidden;
@@ -2145,8 +2137,7 @@ button {
     font-size: clamp(48px, 13vw, 96px);
   }
   .wpanel {
-    height: var(--section-panel);
-    max-height: var(--section-panel-max);
+    height: calc(var(--section-inner) + min(42vh, 240px));
   }
   .services__stack .wpanel:nth-child(2) {
     margin-top: -20px;
@@ -2154,7 +2145,6 @@ button {
   }
   .services__stack .wpanel:nth-child(4) {
     height: var(--section-inner);
-    max-height: var(--section-max);
   }
   .wpanel__in {
     height: var(--section-inner);

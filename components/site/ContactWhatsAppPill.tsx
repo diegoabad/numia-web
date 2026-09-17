@@ -16,7 +16,7 @@ export function ContactWhatsAppPill() {
         el.classList.add("is-inview");
         observer.disconnect();
       },
-      { threshold: 0.45 },
+      { threshold: 0.05, rootMargin: "40px 0px 20% 0px" },
     );
 
     observer.observe(el);

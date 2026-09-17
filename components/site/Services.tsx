@@ -110,7 +110,7 @@ export function Services() {
     <section className="services" id="servicios">
       <div className="services__stack">
         <div className="services__intro section-pad">
-          <p className="kicker reveal">Servicios / 03</p>
+          <p className="kicker reveal">Servicios / 04</p>
           <div className="services__intro-grid">
             <h2 className="services__title reveal">
               Todo lo que necesitás para
@@ -164,34 +164,45 @@ export function Services() {
             </div>
           </article>
         ))}
-        <div className="services__hold" aria-hidden="true" />
-      </div>
 
-      <div className="services__extra section-pad">
-        <div className="services__extra-head">
-          <p className="kicker reveal">También podemos ayudarte con</p>
-          <h3 className="services__extra-title reveal">¿Necesitás algo diferente?</h3>
-          <p className="services__extra-lead reveal">
-            No todos los proyectos entran en una categoría. También trabajamos en soluciones de
-            diseño y tecnología adaptadas a cada negocio.
-          </p>
-        </div>
-        <div className="services__extra-grid">
-          {extraServices.map((item) => (
-            <article className="xservice reveal" key={item.title}>
-              <h4 className="xservice__title">{item.title}</h4>
-              <p className="xservice__copy">{item.copy}</p>
-            </article>
-          ))}
-        </div>
-        <a
-          className="services__extra-cta reveal"
-          href={whatsappHref("presupuesto")}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Presupuesto personalizado <span aria-hidden="true">→</span>
-        </a>
+        <article className="wpanel wpanel--light spanel" data-panel>
+          <span className="wpanel__mark" aria-hidden="true">
+            04
+          </span>
+          <div className="wpanel__in spanel__in">
+            <p className="wpanel__idx">04 / Otros</p>
+            <div className="spanel__body">
+              <h3 className="wpanel__title">
+                ¿Necesitás algo <em>diferente?</em>
+              </h3>
+              <p className="spanel__copy">
+                No todos los proyectos entran en una categoría. También trabajamos en soluciones de
+                diseño y tecnología adaptadas a cada negocio.
+              </p>
+              <div className="spanel__plans spanel__plans--extras">
+                {extraServices.map((item) => (
+                  <div className="spanel__plan" key={item.title}>
+                    <p className="spanel__plan-name">{item.title}</p>
+                    <p className="spanel__plan-detail">{item.copy}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="spanel__foot">
+              <p className="spanel__note">Diseño · Branding · Desarrollo · Automatización</p>
+              <a
+                className="spanel__cta"
+                href={whatsappHref("presupuesto")}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Presupuesto personalizado <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <div className="services__hold" aria-hidden="true" />
       </div>
     </section>
   );

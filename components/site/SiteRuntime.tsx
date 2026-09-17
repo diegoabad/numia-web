@@ -1,10 +1,22 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { IsoMark } from "./IsoMark";
 
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function lockMobileHeroHeight() {
+  const root = document.documentElement;
+  const mq = window.matchMedia("(max-width: 900px)");
+  if (!mq.matches) {
+    root.style.removeProperty("--hero-lock-h");
+    return;
+  }
+  // Altura en px al cargar: no se recalcula al esconder la barra del browser
+  const h = Math.round(window.innerHeight);
+  root.style.setProperty("--hero-lock-h", `${h}px`);
 }
 
 export function SiteRuntime() {
@@ -13,6 +25,21 @@ export function SiteRuntime() {
   const barRef = useRef<HTMLSpanElement>(null);
   const countRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    lockMobileHeroHeight();
+    const mq = window.matchMedia("(max-width: 900px)");
+    const onOrientation = () => {
+      window.setTimeout(lockMobileHeroHeight, 280);
+    };
+    mq.addEventListener("change", lockMobileHeroHeight);
+    window.addEventListener("orientationchange", onOrientation);
+    return () => {
+      mq.removeEventListener("change", lockMobileHeroHeight);
+      window.removeEventListener("orientationchange", onOrientation);
+      document.documentElement.style.removeProperty("--hero-lock-h");
+    };
+  }, []);
 
   useEffect(() => {
     const body = document.body;

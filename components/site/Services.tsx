@@ -4,104 +4,114 @@ const mainServices = [
   {
     theme: "light",
     stamp: "01",
-    label: "Diseño web",
+    label: "Presencia digital",
     intent: "web" as const,
-    title: (
-      <>
-        Tu negocio también necesita un buen lugar en <em>internet.</em>
-      </>
-    ),
-    copy: "Diseñamos sitios claros, modernos y adaptados a todos los dispositivos para que puedas mostrar lo que hacés, generar confianza y convertir visitas en consultas.",
+    title: <>Diseño <em>web</em></>,
+    lead: "Una web clara, profesional y pensada para hacer crecer tu negocio.",
+    copy: "",
+    includes: "Adaptada a celular · Optimizada para Google · Botón de WhatsApp · Formulario de contacto · Carga rápida",
     plans: [
       {
-        name: "Básico",
-        price: "$350.000",
-        detail: "Una web simple y profesional para presentar tu negocio.",
+        name: "Landing Page",
+        price: "Desde $350.000",
+        detail:
+          "Una página directa y atractiva para presentar tu negocio, servicio o producto y generar consultas.",
       },
       {
-        name: "Intermedio",
-        price: "$450.000",
-        detail: "Más secciones y contenido para mostrar mejor tus servicios.",
+        name: "Web Profesional",
+        price: "Desde $450.000",
+        detail:
+          "Un sitio completo para mostrar quién sos, qué ofrecés y todo lo que tus clientes necesitan conocer sobre tu negocio.",
       },
       {
-        name: "Premium",
-        price: "$700.000",
-        detail: "Mayor personalización, diseño y funcionalidades.",
+        name: "Web Premium",
+        price: "Desde $700.000",
+        detail:
+          "Una web con mayor nivel de diseño y personalización, pensada para marcas que buscan una presencia digital más cuidada y diferencial.",
       },
     ],
-    foot: "Pago único · Responsive · SEO básico · Diseño y desarrollo",
-    cta: "Quiero mi web",
+    cta: "Hablemos de tu web",
   },
   {
     theme: "dark",
     stamp: "02",
-    label: "E-commerce",
+    label: "Ventas online",
     intent: "ecommerce" as const,
-    title: (
-      <>
-        Tu tienda, abierta todos los <em>días.</em>
-      </>
-    ),
-    copy: "Creamos tiendas online pensadas para que vender sea simple: mostrar tus productos, recibir pedidos, cobrar y gestionar tu negocio desde un mismo lugar.",
+    title: <>E-<em>commerce</em></>,
+    lead: "Una tienda online clara, profesional y pensada para hacer crecer tus ventas.",
+    copy: "",
+    includes:
+      "Adaptada a celular · Optimizada para Google · Botón de WhatsApp · Formulario de contacto · Carga rápida · Analíticas",
     plans: [
       {
-        name: "Simple",
-        price: "$600.000",
-        detail: "Todo lo necesario para empezar a vender online.",
+        name: "Catálogo Online",
+        price: "Desde $600.000",
+        detail:
+          "Mostrá tus productos, precios y variantes de forma clara para que tus clientes puedan conocerlos y hacer consultas o pedidos fácilmente.",
       },
       {
-        name: "Full",
-        price: "$900.000",
-        detail: "Más personalización y funcionalidades para una operación más completa.",
+        name: "Tienda Online",
+        price: "Desde $900.000",
+        detail:
+          "Vendé directamente desde tu web con carrito de compras, medios de pago, opciones de envío y gestión de pedidos.",
+      },
+      {
+        name: "Tienda Premium",
+        price: "Desde $1.200.000",
+        detail:
+          "Una tienda con mayor nivel de diseño y personalización, pensada para marcas que buscan una experiencia de compra más cuidada y profesional.",
       },
     ],
-    foot: "Pago único · Productos · Pagos · Envíos · Responsive",
-    cta: "Quiero vender online",
+    cta: "Hablemos de tu tienda",
   },
   {
     theme: "pink",
     stamp: "03",
     label: "Redes sociales",
     intent: "redes" as const,
-    title: (
-      <>
-        Que tus redes también hablen por tu <em>negocio.</em>
-      </>
-    ),
-    copy: "Creamos contenido visual para que tu marca se vea profesional, mantenga una identidad consistente y tenga presencia durante todo el mes.",
+    title: <>Redes</>,
+    lead: "Contenido pensado para que tu marca se vea activa, profesional y coherente.",
+    copy: "",
+    includes:
+      "Diseño de publicaciones · Adaptado a tu identidad · Textos para cada publicación · Contenido para feed e historias · Calendario mensual · Entrega lista para publicar",
     plans: [
       {
-        name: "4 posteos",
-        price: "$120.000 / mes",
-        detail: "Contenido mensual para mantener presencia constante.",
+        name: "Presencia",
+        price: "Desde $120.000 / mes",
+        detail:
+          "4 publicaciones mensuales para mantener tus redes activas, con una imagen cuidada y contenido alineado con tu negocio.",
       },
       {
-        name: "8 posteos",
-        price: "$200.000 / mes",
-        detail: "Mayor frecuencia y variedad de piezas para tu marca.",
+        name: "Impulso",
+        price: "Desde $200.000 / mes",
+        detail:
+          "8 publicaciones mensuales para comunicar con mayor frecuencia, mostrar más de tu negocio y fortalecer tu presencia en redes.",
       },
     ],
-    foot: "Diseño de piezas · Adaptación a tu identidad · Contenido mensual",
-    cta: "Quiero mejorar mis redes",
+    cta: "Hablemos de tus redes",
   },
 ] as const;
 
 const extraServices = [
   {
-    title: "Identidad visual",
-    copy: "Logos, colores, tipografías y recursos para construir una identidad reconocible.",
+    title: "Diseño Gráfico",
+    copy:
+      "Creamos piezas visuales para tu negocio: invitaciones digitales, piezas para redes, material impreso, vectorización de logos y otros diseños que necesites.",
   },
   {
-    title: "Diseño gráfico",
-    copy: "Piezas digitales, gráficas impresas, packaging y materiales para tu negocio.",
+    title: "Desarrollo a Medida",
+    copy:
+      "Desarrollamos sistemas pensados para la forma en que trabaja tu negocio: gestión de stock, turnos, ventas, clientes, pedidos y otros procesos internos.",
   },
   {
-    title: "Desarrollo a medida",
-    copy: "Sistemas y herramientas desarrolladas alrededor de cómo funciona tu negocio.",
+    title: "Aplicaciones Mobile",
+    copy:
+      "Creamos aplicaciones para celular adaptadas a las necesidades de tu negocio, tanto para tus clientes como para tu equipo.",
   },
   {
-    title: "Apps y automatizaciones",
-    copy: "Apps, automatizaciones e integraciones para simplificar tareas y procesos.",
+    title: "Automatizaciones y bots con IA",
+    copy:
+      "Automatizamos tareas y procesos, y creamos asistentes que pueden responder consultas, tomar datos y reducir trabajo manual para ahorrar tiempo en tu negocio.",
   },
 ] as const;
 
@@ -110,16 +120,17 @@ export function Services() {
     <section className="services" id="servicios">
       <div className="services__stack">
         <div className="services__intro section-pad">
-          <p className="kicker reveal">Servicios / 04</p>
+          <p className="kicker reveal">Servicios</p>
           <div className="services__intro-grid">
             <h2 className="services__title reveal">
               Todo lo que necesitás para
               <br />
-              darle forma a tu <em>negocio.</em>
+              impulsar tu <em>negocio.</em>
             </h2>
             <p className="services__lead reveal">
-              Desde una web o una tienda online hasta el contenido de tus redes. Elegí por dónde
-              empezar y nosotros nos encargamos de hacerlo realidad.
+              No importa si estás empezando o si ya tenés un negocio en marcha. Podemos ayudarte a
+              mejorar tu presencia digital, vender online, comunicar mejor o simplificar la forma en
+              la que trabajás.
             </p>
           </div>
         </div>
@@ -130,16 +141,32 @@ export function Services() {
             data-panel
             key={service.stamp}
           >
-            <span className="wpanel__mark" aria-hidden="true">
-              {service.stamp}
-            </span>
             <div className="wpanel__in spanel__in">
               <p className="wpanel__idx">
                 {service.stamp} / {service.label}
               </p>
               <div className="spanel__body">
-                <h3 className="wpanel__title">{service.title}</h3>
-                <p className="spanel__copy">{service.copy}</p>
+                <div className="spanel__main">
+                  <h3 className="wpanel__title">{service.title}</h3>
+                  {service.lead ? <p className="spanel__lead">{service.lead}</p> : null}
+                  {service.copy ? <p className="spanel__copy">{service.copy}</p> : null}
+                  {service.includes ? (
+                    <div className="spanel__includes">
+                      <p className="spanel__includes-label">Incluye</p>
+                      <p className="spanel__includes-list">{service.includes}</p>
+                    </div>
+                  ) : null}
+                  {service.cta ? (
+                    <a
+                      className="spanel__cta"
+                      href={whatsappHref(service.intent)}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {service.cta} <span aria-hidden="true">→</span>
+                    </a>
+                  ) : null}
+                </div>
                 <div className="spanel__plans">
                   {service.plans.map((plan) => (
                     <div className="spanel__plan" key={plan.name}>
@@ -150,35 +177,31 @@ export function Services() {
                   ))}
                 </div>
               </div>
-              <div className="spanel__foot">
-                <p className="spanel__note">{service.foot}</p>
-                <a
-                  className="spanel__cta"
-                  href={whatsappHref(service.intent)}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {service.cta} <span aria-hidden="true">→</span>
-                </a>
-              </div>
             </div>
           </article>
         ))}
 
         <article className="wpanel wpanel--light spanel" data-panel>
-          <span className="wpanel__mark" aria-hidden="true">
-            04
-          </span>
           <div className="wpanel__in spanel__in">
-            <p className="wpanel__idx">04 / Otros</p>
+            <p className="wpanel__idx">04 / Soluciones a medida</p>
             <div className="spanel__body">
-              <h3 className="wpanel__title">
-                ¿Necesitás algo <em>diferente?</em>
-              </h3>
-              <p className="spanel__copy">
-                No todos los proyectos entran en una categoría. También trabajamos en soluciones de
-                diseño y tecnología adaptadas a cada negocio.
-              </p>
+              <div className="spanel__main">
+                <h3 className="wpanel__title">
+                  ¿Necesitás algo <em>diferente?</em>
+                </h3>
+                <p className="spanel__lead">
+                  No todos los proyectos entran en una categoría. También trabajamos en soluciones de
+                  diseño y tecnología adaptadas a cada negocio.
+                </p>
+                <a
+                  className="spanel__cta"
+                  href={whatsappHref("presupuesto")}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Quiero consultar un presupuesto <span aria-hidden="true">→</span>
+                </a>
+              </div>
               <div className="spanel__plans spanel__plans--extras">
                 {extraServices.map((item) => (
                   <div className="spanel__plan" key={item.title}>
@@ -187,17 +210,6 @@ export function Services() {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="spanel__foot">
-              <p className="spanel__note">Diseño · Branding · Desarrollo · Automatización</p>
-              <a
-                className="spanel__cta"
-                href={whatsappHref("presupuesto")}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Presupuesto personalizado <span aria-hidden="true">→</span>
-              </a>
             </div>
           </div>
         </article>

@@ -4,15 +4,23 @@ import { useEffect } from "react";
 
 const lead = "Tenés una idea. Nosotros te ayudamos a hacerla realidad.";
 
-const body =
-  "Combinamos diseño, comunicación y tecnología para crear soluciones que potencien tu negocio, fortalezcan tu marca y conecten con las personas. Desde la primera idea hasta el resultado final, pensamos cada proyecto para que se vea bien, funcione mejor y tenga un propósito.";
+const bodyParagraphs = [
+  "En Numia combinamos diseño y tecnología para crear soluciones pensadas alrededor de cada negocio.",
+  "Podemos ayudarte a crear tu página web, empezar a vender online, mejorar la imagen de tu marca o desarrollar una herramienta que simplifique tu trabajo.",
+  "Vos nos contás qué necesitás. Nosotros buscamos la mejor manera de hacerlo realidad.",
+] as const;
 
 const leadWords = lead.split(/\s+/);
-const bodyWords = body.split(/\s+/);
 
 function isAccent(word: string) {
   const clean = word.replace(/[.,;:!?]/g, "").toLowerCase();
-  return clean === "diseño" || clean === "tecnología" || clean === "funcione" || clean === "mejor";
+  return (
+    clean === "diseño" ||
+    clean === "tecnología" ||
+    clean === "negocio" ||
+    clean === "realidad" ||
+    clean === "herramienta"
+  );
 }
 
 function prefersReducedMotion() {
@@ -45,7 +53,6 @@ export function Manifesto() {
       const rect = track.getBoundingClientRect();
       const distance = Math.max(1, track.offsetHeight - window.innerHeight);
       const progress = clamp(-rect.top / distance, 0, 1);
-      // Termina de iluminar ~70% del sticky; el resto queda trabado con el texto completo
       const lightProgress = clamp(progress / 0.7, 0, 1);
       const litCount = Math.ceil(lightProgress * wordsEls.length);
 
@@ -84,14 +91,24 @@ export function Manifesto() {
               </span>
             ))}
           </p>
-          <h2 className="manifesto__text" id="mtext">
-            {bodyWords.map((word, i) => (
-              <span key={`body-${word}-${i}`} className={isAccent(word) ? "mag" : undefined}>
-                {word}
-                {i < bodyWords.length - 1 ? " " : ""}
-              </span>
-            ))}
-          </h2>
+          <div className="manifesto__text" id="mtext">
+            {bodyParagraphs.map((paragraph, pi) => {
+              const words = paragraph.split(/\s+/);
+              return (
+                <p className="manifesto__para" key={paragraph}>
+                  {words.map((word, i) => (
+                    <span
+                      key={`body-${pi}-${word}-${i}`}
+                      className={isAccent(word) ? "mag" : undefined}
+                    >
+                      {word}
+                      {i < words.length - 1 ? " " : ""}
+                    </span>
+                  ))}
+                </p>
+              );
+            })}
+          </div>
           <div className="manifesto__layers" aria-hidden="true">
             <span className="layer layer-a">N</span>
             <span className="layer layer-b">U</span>

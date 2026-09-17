@@ -81,6 +81,15 @@ export function SiteRuntime() {
 
     const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 
+    const syncStuckPanels = () => {
+      document.querySelectorAll<HTMLElement>("[data-panel]").forEach((panel) => {
+        const stickyTop = Number.parseFloat(getComputedStyle(panel).top) || 0;
+        const top = panel.getBoundingClientRect().top;
+        // Un poco antes de clavar, para que no se vea la curva contra el fondo
+        panel.classList.toggle("is-stuck", top <= stickyTop + 20);
+      });
+    };
+
     const onFrame = () => {
       ticking = false;
 
@@ -96,6 +105,8 @@ export function SiteRuntime() {
         const center = r.top + r.height / 2 - window.innerHeight / 2;
         el.style.transform = `translate3d(0, ${center * -speed}px, 0)`;
       });
+
+      syncStuckPanels();
     };
 
     const onScroll = () => {
@@ -111,7 +122,9 @@ export function SiteRuntime() {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
     onFrame();
+    const boot = window.setTimeout(onFrame, 100);
     return () => {
+      window.clearTimeout(boot);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
     };

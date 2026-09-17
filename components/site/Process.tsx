@@ -1,23 +1,23 @@
 const steps = [
   {
     n: "01",
-    title: "Entender",
-    copy: "Objetivo, operación, restricciones, usuarios y qué resultado concreto tiene que mover el proyecto.",
+    title: "Nos conocemos",
+    copy: "Nos contás sobre tu negocio, tu idea y qué necesitás. Nosotros te escuchamos y buscamos entender qué querés lograr.",
   },
   {
     n: "02",
-    title: "Reducir",
-    copy: "Priorizamos. Quitamos capas innecesarias y definimos una primera versión que ya pueda generar valor.",
+    title: "Pensamos la solución",
+    copy: "Definimos qué vamos a hacer, qué necesitás realmente y cuál es la mejor forma de llevarlo adelante.",
   },
   {
     n: "03",
-    title: "Construir",
-    copy: "Diseño y desarrollo avanzan juntos. Prototipamos, probamos, corregimos y cerramos decisiones con evidencia.",
+    title: "Lo hacemos realidad",
+    copy: "Diseñamos y desarrollamos tu proyecto, compartiendo avances para que puedas acompañar el proceso.",
   },
   {
     n: "04",
-    title: "Escalar",
-    copy: "Medimos lo que ocurre en producción y evolucionamos el sistema sin convertirlo en una deuda imposible.",
+    title: "Lo ponemos en marcha",
+    copy: "Dejamos todo listo para empezar a usarlo y te acompañamos en los primeros pasos.",
   },
 ] as const;
 
@@ -26,17 +26,14 @@ export function Process() {
     <section className="process section-pad" id="proceso">
       <div className="process__grid">
         <div className="process__side">
-          <p className="kicker reveal">Proceso / sin humo</p>
+          <p className="kicker reveal">Nuestro proceso</p>
           <h2 className="display reveal">
-            Claro.
+            De la idea
             <br />
-            Rápido.
-            <br />
-            <em>Iterativo.</em>
+            a la <em>realidad.</em>
           </h2>
           <p className="process__lead reveal">
-            Cuatro etapas, siempre las mismas. Sabés en qué punto está tu proyecto y qué sigue
-            después.
+            Un proceso simple y acompañado para transformar tu idea en algo concreto.
           </p>
         </div>
         <div className="process__steps">

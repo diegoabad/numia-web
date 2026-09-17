@@ -1,24 +1,5 @@
-import type { CSSProperties } from "react";
 import { IsoMark } from "./IsoMark";
-import { Marquee } from "./Marquee";
-
-const claimTokens = [
-  { text: "Construimos", accent: false },
-  { text: "la", accent: false },
-  { text: "presencia digital", accent: true },
-  { text: "de", accent: false },
-  { text: "tu", accent: false },
-  { text: "negocio", accent: true },
-  { text: "a", accent: false },
-  { text: "través", accent: false },
-  { text: "del", accent: false },
-  { text: "diseño web,", accent: true },
-  { text: "e-commerce,", accent: true },
-  { text: "redes sociales,", accent: true },
-  { text: "identidad visual", accent: true },
-  { text: "y", accent: false },
-  { text: "desarrollo a medida.", accent: true },
-] as const;
+import { ContactWhatsAppPill } from "./ContactWhatsAppPill";
 
 export function Hero() {
   return (
@@ -43,18 +24,30 @@ export function Hero() {
           </div>
         </div>
       </div>
-      <p className="hero__claim">
-        {claimTokens.map((token, i) => (
-          <span
-            key={`${token.text}-${i}`}
-            className={token.accent ? "hero__claim-key" : undefined}
-            style={{ "--i": i } as CSSProperties}
-          >
-            {token.text}
-          </span>
-        ))}
-      </p>
-      <Marquee />
+
+      <div className="hero__bottom">
+        <div className="hero__copy-row">
+          <p className="hero__lead">
+            Creamos <strong>soluciones digitales</strong> para hacer crecer{" "}
+            <em className="hero__lead-end">tu negocio.</em>
+          </p>
+          <div className="hero__body">
+            <p>
+              Diseñamos <strong>páginas web, tiendas online y contenido para redes</strong> para hacer
+              crecer tu negocio.
+            </p>
+            <p>
+              También desarrollamos <strong>automatizaciones y soluciones con IA</strong> para
+              simplificar y mejorar el día a día de tu negocio.
+            </p>
+          </div>
+        </div>
+
+        <div className="hero__actions">
+          <ContactWhatsAppPill label="Contanos tu idea" icon="arrow" />
+        </div>
+      </div>
+
       <div className="hero__index" aria-hidden="true">
         N°01
       </div>

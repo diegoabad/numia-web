@@ -21,7 +21,7 @@ export const siteConfig = {
   location: "Buenos Aires, Argentina",
   hours: "Lunes a viernes, 9 a 18 h",
   socials: [
-    { label: "Instagram", href: "https://instagram.com/numia.studio" },
+    { label: "Instagram", href: "https://www.instagram.com/numia.digitalstudio" },
     { label: "Facebook", href: "https://www.facebook.com/numia.studio" },
   ],
   keywords: [

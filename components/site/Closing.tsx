@@ -7,21 +7,27 @@ export function Closing() {
     <section className="closing" id="contacto">
       <div className="closing__copy section-pad">
         <div className="closing__main">
-          <p className="kicker reveal">¿TENÉS ALGO EN MENTE?</p>
+          <p className="kicker reveal">¿Tenés algo en mente?</p>
           <div className="closing__hero">
             <h2 className="closing__title">
               <span className="line-mask">
-                <span>HAGAMOS</span>
+                <span>Contanos</span>
               </span>
               <span className="line-mask">
-                <span>ALGO QUE</span>
-              </span>
-              <span className="line-mask">
-                <span className="closing__accent">IMPORTE.</span>
+                <span>
+                  tu <span className="closing__accent">idea.</span>
+                </span>
               </span>
             </h2>
-            <div className="closing__bottom">
-              <ContactWhatsAppPill />
+            <div className="closing__row">
+              <p className="closing__lead reveal">
+                No hace falta que tengas todo definido.
+                <br />
+                Contanos qué necesitás y vemos juntos cómo hacerlo realidad.
+              </p>
+              <div className="closing__bottom">
+                <ContactWhatsAppPill label="Escribinos por WhatsApp" />
+              </div>
             </div>
           </div>
         </div>

@@ -730,6 +730,30 @@
   color: var(--pl-pink-deep);
 }
 
+.pl-foot__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pl-foot__legal a {
+  position: relative;
+  padding-right: 0.7em;
+  margin-right: 0.7em;
+}
+
+.pl-foot__legal a:not(:last-child)::after {
+  content: "·";
+  position: absolute;
+  right: -0.15em;
+  opacity: 0.45;
+}
+
+.pl-foot__legal a:last-child {
+  padding-right: 0;
+  margin-right: 0;
+}
+
 @media (min-width: 720px) {
   .pl-form__grid {
     grid-template-columns: 1fr 1fr;

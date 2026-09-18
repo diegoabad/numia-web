@@ -42,8 +42,8 @@ export function Closing() {
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           </div>
           <div>
-            <h3>Ubicación</h3>
-            <p>{siteConfig.location}</p>
+            <h3>Horarios</h3>
+            <p>Lunes a Viernes de 10:00 a 18:00</p>
           </div>
           <div>
             <h3>Sumate</h3>

@@ -1064,7 +1064,6 @@ button {
 .wpanel--pink .spanel__includes-list,
 .wpanel--pink .spanel__plan-name,
 .wpanel--pink .spanel__plan-price,
-.wpanel--pink .spanel__plan-monthly,
 .wpanel--pink .spanel__plan-detail,
 .wpanel--pink .spanel__cta,
 .wpanel--pink .wpanel__title {
@@ -1074,7 +1073,6 @@ button {
 
 .wpanel--pink .spanel__includes-label,
 .wpanel--pink .spanel__plan-price,
-.wpanel--pink .spanel__plan-monthly,
 .wpanel--pink .wpanel__idx {
   color: #fff;
   opacity: 0.95;
@@ -1412,17 +1410,12 @@ button {
   text-transform: uppercase;
   font-weight: 500;
   opacity: 0.78;
-  white-space: nowrap;
 }
 
-.spanel__plan-monthly {
-  margin: 2px 0 0;
-  font-family: var(--font-kicker);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-weight: 500;
-  opacity: 0.62;
+.spanel__plan-dot {
+  margin: 0 0.45em;
+  color: currentColor;
+  opacity: 0.45;
 }
 
 .spanel__plan-detail {
@@ -2028,20 +2021,22 @@ button {
 
 .closing__cols {
   grid-row: auto;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
   column-gap: clamp(28px, 4vw, 56px);
   row-gap: 0;
   margin-top: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   padding-top: 22px;
   padding-bottom: 4px;
-  align-items: start;
-  justify-items: start;
 }
 
 .closing__cols > * {
-  min-width: 0;
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: 100%;
   text-align: left;
 }
 
@@ -2179,7 +2174,8 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 8px 16px;
+  align-items: center;
+  gap: 0;
   font-family: var(--font-kicker);
   font-size: 9px;
   letter-spacing: 0.12em;
@@ -2187,9 +2183,24 @@ button {
 }
 
 .foot__legal a {
+  position: relative;
+  padding-right: 0.7em;
+  margin-right: 0.7em;
   color: rgba(255, 255, 255, 0.45);
   text-decoration: none;
   transition: color 0.25s var(--ease);
+}
+
+.foot__legal a:not(:last-child)::after {
+  content: "·";
+  position: absolute;
+  right: -0.15em;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.foot__legal a:last-child {
+  padding-right: 0;
+  margin-right: 0;
 }
 
 .foot__legal a:hover {
@@ -2927,9 +2938,6 @@ button {
   .spanel__plan-price {
     font-size: 10px;
   }
-  .spanel__plan-monthly {
-    font-size: 9px;
-  }
   .spanel__plan-detail {
     margin-top: 2px;
     font-size: 0.8rem;
@@ -3092,8 +3100,9 @@ button {
     margin-bottom: 0;
   }
   .closing__cols {
-    grid-row: auto;
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     margin-top: 0;
     padding-top: 28px;
     row-gap: 30px;

@@ -220,9 +220,11 @@ export function PartnersLanding() {
         <p>
           © {new Date().getFullYear()} {siteConfig.name}
         </p>
-        <Link href="/terminos">Términos</Link>
-        <Link href="/privacidad">Privacidad</Link>
-        <Link href="/cookies">Cookies</Link>
+        <nav className="pl-foot__legal" aria-label="Información legal">
+          <Link href="/terminos">Términos</Link>
+          <Link href="/privacidad">Privacidad</Link>
+          <Link href="/cookies">Cookies</Link>
+        </nav>
         <Link href="/">Volver al sitio</Link>
       </footer>
     </div>

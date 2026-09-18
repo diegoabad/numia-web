@@ -178,11 +178,18 @@ export function Services() {
                     <div className="spanel__plan" key={plan.name}>
                       <p className="spanel__plan-name">{plan.name}</p>
                       <p className="spanel__plan-price">
-                        {"monthly" in plan && plan.monthly ? `Desarrollo ${plan.price}` : plan.price}
+                        {"monthly" in plan && plan.monthly ? (
+                          <>
+                            Desarrollo {plan.price}
+                            <span className="spanel__plan-dot" aria-hidden="true">
+                              ·
+                            </span>
+                            Mantenimiento {plan.monthly}
+                          </>
+                        ) : (
+                          plan.price
+                        )}
                       </p>
-                      {"monthly" in plan && plan.monthly ? (
-                        <p className="spanel__plan-monthly">Mantenimiento {plan.monthly}</p>
-                      ) : null}
                       <p className="spanel__plan-detail">{plan.detail}</p>
                     </div>
                   ))}

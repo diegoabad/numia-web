@@ -46,8 +46,8 @@ export function Closing() {
             <p>{siteConfig.location}</p>
           </div>
           <div>
-            <h3>Trabajá con nosotros</h3>
-            <Link href="/partners">Como Partner</Link>
+            <h3>Sumate</h3>
+            <Link href="/partners">Trabajá con nosotros</Link>
           </div>
           <div>
             <h3>Redes</h3>

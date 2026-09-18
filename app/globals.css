@@ -18,7 +18,7 @@
   --section-h: calc(var(--section-inner) + var(--topbar-h));
   --section-panel: calc(var(--section-inner) + var(--section-hold));
   --section-panel-max: calc(var(--section-max) + var(--section-hold));
-  --fab-bottom: max(18px, env(safe-area-inset-bottom));
+  --fab-bottom: max(14px, env(safe-area-inset-bottom));
   --fab-size: 60px;
 }
 
@@ -440,7 +440,7 @@ button {
 }
 
 .hero__title {
-  font-size: clamp(2.75rem, 5.6vw, 5rem);
+  font-size: clamp(2.55rem, 5.1vw, 4.6rem);
   line-height: 1.08;
   letter-spacing: 0.01em;
   font-weight: 600;
@@ -1700,17 +1700,26 @@ button {
 .closing__copy {
   position: relative;
   z-index: 3;
-    width: 100%;
-  flex: 1;
+  width: 100%;
+  flex: 0 0 auto;
   min-height: 0;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto auto;
+  display: flex;
+  flex-direction: column;
   padding-top: 0;
   padding-bottom: 0;
 }
 
+.closing__stage {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .closing__main {
-  grid-row: 1;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1720,7 +1729,7 @@ button {
   padding-bottom: 0;
 }
 
-.closing__copy .kicker {
+.closing__main .kicker {
   margin-top: 0;
   margin-bottom: 28px;
 }
@@ -1760,6 +1769,7 @@ button {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: clamp(24px, 4vw, 48px);
   align-items: center;
+  width: min(100%, 1080px);
 }
 
 .closing__lead {
@@ -1999,47 +2009,22 @@ button {
 }
 
 .closing__cols {
-  grid-row: 2;
+  grid-row: auto;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: clamp(20px, 3vw, 40px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: clamp(28px, 4vw, 56px);
+  row-gap: 0;
   margin-top: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   padding-top: 22px;
   padding-bottom: 4px;
   align-items: start;
+  justify-items: start;
 }
 
-.closing__cols > :nth-child(1) {
-  justify-self: start;
+.closing__cols > * {
+  min-width: 0;
   text-align: left;
-}
-
-.closing__cols > :nth-child(2) {
-  justify-self: center;
-  text-align: left;
-}
-
-.closing__cols > :nth-child(2) p {
-  text-align: center;
-}
-
-.closing__cols > :nth-child(3) {
-  justify-self: end;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.closing__cols > :nth-child(3) h3 {
-  align-self: flex-start;
-  width: 100%;
-  text-align: left;
-}
-
-.closing__cols > :nth-child(3) .closing__socials {
-  justify-content: flex-end;
 }
 
 .closing__cols h3 {
@@ -2110,7 +2095,7 @@ button {
 }
 
 .foot {
-  grid-row: 3;
+  grid-row: auto;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -2171,6 +2156,15 @@ button {
   color: var(--pink);
 }
 
+.foot__spacer {
+  justify-self: end;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .foot__copy {
   justify-self: start;
   font-family: var(--font-kicker);
@@ -2201,7 +2195,8 @@ button {
 
 .wa-btn {
   position: fixed;
-  right: max(18px, env(safe-area-inset-right));
+  /* Anclado al borde del contenido (--page-max), no al borde del monitor */
+  right: max(var(--page-side), env(safe-area-inset-right));
   bottom: var(--fab-bottom);
   z-index: 40;
   display: grid;
@@ -2229,7 +2224,7 @@ button {
 
 @media (min-width: 901px) {
   :root {
-    --fab-bottom: max(40px, env(safe-area-inset-bottom));
+    --fab-bottom: max(26px, env(safe-area-inset-bottom));
   }
 
   .hero {
@@ -2237,10 +2232,10 @@ button {
     height: var(--section-h);
     min-height: var(--section-h);
     max-height: var(--section-h);
-    justify-content: flex-start;
-    /* Menos aire entre las 3 palabras y el H1 (ajuste suave) */
+    /* Bloque título→CTA centrado en el alto útil (aire similar arriba y abajo) */
+    justify-content: center;
     gap: clamp(26px, 3.2vh, 40px);
-    padding-top: calc(var(--topbar-h) + clamp(28px, 4vh, 56px));
+    padding-top: calc(var(--topbar-h) + clamp(12px, 1.8vh, 28px));
     padding-bottom: var(--fab-bottom);
   }
 
@@ -2250,8 +2245,12 @@ button {
     position: static;
   }
 
+  .hero__title {
+    font-size: clamp(2.55rem, 5.1vw, 4.6rem);
+  }
+
   .hero__visual {
-    top: 46%;
+    top: 50%;
     right: var(--page-side);
     width: min(28vw, 360px);
     max-width: 360px;
@@ -2312,10 +2311,6 @@ button {
     opacity: 1;
     transform: none;
     transition-delay: 1.25s;
-  }
-
-  .wa-btn {
-    right: 40px;
   }
 
   .process__steps {
@@ -3030,43 +3025,44 @@ button {
     max-height: none;
     min-height: 0;
     justify-content: flex-start;
-    /* sticky necesita overflow visible */
-    overflow: visible;
+    overflow: clip;
   }
-  .closing__copy {
-    display: flex;
-    flex-direction: column;
+  .closing__stage {
+    /* Viewport + trabita: al terminar el stage se suelta el sticky y aparece el footer */
+    height: calc(100svh - var(--topbar-h) + min(38vh, 260px));
     flex: none;
     min-height: 0;
-    grid-template-rows: none;
-    padding-top: 0;
-    padding-bottom: 0;
   }
   .closing__main {
-    grid-row: auto;
     position: sticky;
     top: var(--topbar-h);
     z-index: 2;
     flex: none;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     gap: clamp(36px, 6svh, 52px);
-    min-height: calc(100svh - var(--topbar-h));
     height: calc(100svh - var(--topbar-h));
+    min-height: calc(100svh - var(--topbar-h));
     max-height: calc(100svh - var(--topbar-h));
-    padding-top: clamp(20px, 4svh, 36px);
+    padding-top: clamp(12px, 2svh, 24px);
     padding-bottom: 28px;
     box-sizing: border-box;
     background: #101012;
   }
-  .closing__hold {
-    display: block;
-    height: min(42vh, 300px);
+  .closing__copy {
+    display: flex;
+    flex-direction: column;
     flex: none;
-    pointer-events: none;
+    min-height: 0;
+    position: relative;
+    z-index: 3;
+    background: #101012;
+    padding-top: 8px;
+    padding-bottom: 0;
   }
-  .closing__copy .kicker {
+  .closing__copy .kicker,
+  .closing__main .kicker {
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -3079,11 +3075,13 @@ button {
   }
   .closing__cols > :nth-child(1),
   .closing__cols > :nth-child(2),
-  .closing__cols > :nth-child(3) {
+  .closing__cols > :nth-child(3),
+  .closing__cols > :nth-child(4) {
     justify-self: start;
     text-align: left;
   }
-  .closing__cols > :nth-child(3) .closing__socials {
+  .closing__cols > :nth-child(3) .closing__socials,
+  .closing__cols > :nth-child(4) .closing__socials {
     justify-content: flex-start;
   }
   .closing__cols h3 {
@@ -3092,29 +3090,22 @@ button {
   .foot {
     grid-row: auto;
     grid-template-columns: 1fr;
-    justify-items: start;
+    justify-items: center;
     margin-top: 28px;
     padding-top: 22px;
     padding-bottom: 22px;
     gap: 14px;
   }
-  .foot__copy,
-  .foot__made,
-  .foot__partner {
-    justify-self: start;
-  }
-  .foot__made {
-    justify-content: flex-start;
-  }
-  /* Partner arriba del crédito; no queda último */
-  .foot__partner {
-    order: 1;
-  }
-  .foot__made {
-    order: 2;
-  }
   .foot__copy {
-    order: 3;
+    display: none;
+  }
+  .foot__made {
+    justify-self: center;
+    justify-content: center;
+    order: 0;
+  }
+  .foot__spacer {
+    display: none;
   }
   .closing::before {
     filter: blur(14px);
@@ -3138,6 +3129,7 @@ button {
   .closing__row {
     grid-template-columns: 1fr;
     gap: clamp(52px, 9svh, 72px);
+    width: 100%;
   }
   .closing__lead {
     max-width: none;
@@ -3292,11 +3284,13 @@ button {
   }
   .closing__cols > :nth-child(1),
   .closing__cols > :nth-child(2),
-  .closing__cols > :nth-child(3) {
+  .closing__cols > :nth-child(3),
+  .closing__cols > :nth-child(4) {
     justify-self: start;
     text-align: left;
   }
-  .closing__cols > :nth-child(3) .closing__socials {
+  .closing__cols > :nth-child(3) .closing__socials,
+  .closing__cols > :nth-child(4) .closing__socials {
     justify-content: flex-start;
   }
   .closing__cols h3 {
@@ -3304,33 +3298,20 @@ button {
   }
   .foot {
     grid-template-columns: 1fr;
-    justify-items: start;
+    justify-items: center;
     gap: 14px;
     margin-top: 28px;
     padding-top: 24px;
     padding-bottom: 24px;
   }
 
-  .foot__copy,
-  .foot__made,
-  .foot__partner {
-    justify-self: start;
-  }
-
-  .foot__made {
-    justify-content: flex-start;
-  }
-
-  .foot__partner {
-    order: 1;
-  }
-
-  .foot__made {
-    order: 2;
-  }
-
   .foot__copy {
-    order: 3;
+    display: none;
+  }
+
+  .foot__made {
+    justify-self: center;
+    justify-content: center;
   }
 
   .foot__spacer {

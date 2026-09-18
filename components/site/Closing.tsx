@@ -7,8 +7,8 @@ import { whatsappHref } from "@/lib/whatsapp";
 export function Closing() {
   return (
     <section className="closing" id="contacto">
-      <div className="closing__copy section-pad">
-        <div className="closing__main">
+      <div className="closing__stage">
+        <div className="closing__main section-pad">
           <p className="kicker reveal">¿Tenés algo en mente?</p>
           <div className="closing__hero">
             <h2 className="closing__title">
@@ -33,21 +33,21 @@ export function Closing() {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="closing__hold" aria-hidden="true" />
-
+      <div className="closing__copy section-pad">
         <div className="closing__cols">
           <div>
             <h3>Escribinos</h3>
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           </div>
           <div>
-            <h3>Estudio</h3>
-            <p>
-              {siteConfig.location}
-              <span className="closing__sep">·</span>
-              {siteConfig.hours}
-            </p>
+            <h3>Ubicación</h3>
+            <p>{siteConfig.location}</p>
+          </div>
+          <div>
+            <h3>Trabajá con nosotros</h3>
+            <Link href="/partners">Como Partner</Link>
           </div>
           <div>
             <h3>Redes</h3>
@@ -86,9 +86,7 @@ export function Closing() {
               sizes="52px"
             />
           </p>
-          <Link className="foot__partner" href="/partners">
-            Sumate como Partner
-          </Link>
+          <span className="foot__spacer" aria-hidden="true" />
         </div>
       </div>
     </section>

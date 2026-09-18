@@ -68,6 +68,53 @@ export function SiteRuntime() {
   }, []);
 
   useEffect(() => {
+    // Evita que al recargar quede un poco abajo del hero (común en Lenovo/DPI)
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    const isTopSection = (hash: string) =>
+      hash === "" || hash === "#" || hash === "#inicio" || hash === "#contenido-principal";
+
+    const snapTop = () => {
+      if (!isTopSection(window.location.hash)) return;
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    };
+
+    snapTop();
+    const boot = window.setTimeout(snapTop, 0);
+    const afterLayout = window.setTimeout(snapTop, 120);
+
+    const onHashChange = () => {
+      if (isTopSection(window.location.hash)) snapTop();
+    };
+
+    const onClick = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const link = target.closest("a[href='#inicio'], a[href='#']");
+      if (!link) return;
+      event.preventDefault();
+      if (window.location.hash !== "#inicio") {
+        history.pushState(null, "", "#inicio");
+      }
+      snapTop();
+    };
+
+    window.addEventListener("hashchange", onHashChange);
+    document.addEventListener("click", onClick);
+    window.addEventListener("pageshow", snapTop);
+
+    return () => {
+      window.clearTimeout(boot);
+      window.clearTimeout(afterLayout);
+      window.removeEventListener("hashchange", onHashChange);
+      document.removeEventListener("click", onClick);
+      window.removeEventListener("pageshow", snapTop);
+    };
+  }, []);
+
+  useEffect(() => {
     const targets = [
       ...document.querySelectorAll<HTMLElement>(".reveal, .split-reveal, .closing__title"),
     ];

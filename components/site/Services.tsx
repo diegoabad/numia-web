@@ -13,19 +13,22 @@ const mainServices = [
     plans: [
       {
         name: "Landing Page",
-        price: "Desde $350.000",
+        price: "$349.999",
+        monthly: "$40.000 / mes",
         detail:
           "Una página directa y atractiva para presentar tu negocio, servicio o producto y generar consultas.",
       },
       {
         name: "Web Profesional",
-        price: "Desde $450.000",
+        price: "$449.999",
+        monthly: "$40.000 / mes",
         detail:
           "Un sitio completo para mostrar quién sos, qué ofrecés y todo lo que tus clientes necesitan conocer sobre tu negocio.",
       },
       {
         name: "Web Premium",
-        price: "Desde $700.000",
+        price: "$699.999",
+        monthly: "$40.000 / mes",
         detail:
           "Una web con mayor nivel de diseño y personalización, pensada para marcas que buscan una presencia digital más cuidada y diferencial.",
       },
@@ -45,19 +48,22 @@ const mainServices = [
     plans: [
       {
         name: "Catálogo Online",
-        price: "Desde $600.000",
+        price: "$599.999",
+        monthly: "$60.000 / mes",
         detail:
           "Mostrá tus productos, precios y variantes de forma clara para que tus clientes puedan conocerlos y hacer consultas o pedidos fácilmente.",
       },
       {
         name: "Tienda Online",
-        price: "Desde $900.000",
+        price: "$799.999",
+        monthly: "$80.000 / mes",
         detail:
           "Vendé directamente desde tu web con carrito de compras, medios de pago, opciones de envío y gestión de pedidos.",
       },
       {
         name: "Tienda Premium",
-        price: "Desde $1.200.000",
+        price: "$999.999",
+        monthly: "$80.000 / mes",
         detail:
           "Una tienda con mayor nivel de diseño y personalización, pensada para marcas que buscan una experiencia de compra más cuidada y profesional.",
       },
@@ -77,13 +83,13 @@ const mainServices = [
     plans: [
       {
         name: "Presencia",
-        price: "Desde $120.000 / mes",
+        price: "$119.999 / mes",
         detail:
           "4 publicaciones mensuales para mantener tus redes activas, con una imagen cuidada y contenido alineado con tu negocio.",
       },
       {
         name: "Impulso",
-        price: "Desde $200.000 / mes",
+        price: "$199.999 / mes",
         detail:
           "8 publicaciones mensuales para comunicar con mayor frecuencia, mostrar más de tu negocio y fortalecer tu presencia en redes.",
       },
@@ -171,7 +177,12 @@ export function Services() {
                   {service.plans.map((plan) => (
                     <div className="spanel__plan" key={plan.name}>
                       <p className="spanel__plan-name">{plan.name}</p>
-                      <p className="spanel__plan-price">{plan.price}</p>
+                      <p className="spanel__plan-price">
+                        {"monthly" in plan && plan.monthly ? `Desarrollo ${plan.price}` : plan.price}
+                      </p>
+                      {"monthly" in plan && plan.monthly ? (
+                        <p className="spanel__plan-monthly">Mantenimiento {plan.monthly}</p>
+                      ) : null}
                       <p className="spanel__plan-detail">{plan.detail}</p>
                     </div>
                   ))}

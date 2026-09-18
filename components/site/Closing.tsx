@@ -86,7 +86,11 @@ export function Closing() {
               sizes="52px"
             />
           </p>
-          <span className="foot__spacer" aria-hidden="true" />
+          <nav className="foot__legal" aria-label="Información legal">
+            <Link href="/terminos">Términos</Link>
+            <Link href="/privacidad">Privacidad</Link>
+            <Link href="/cookies">Cookies</Link>
+          </nav>
         </div>
       </div>
     </section>

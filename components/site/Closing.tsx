@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ContactWhatsAppPill } from "./ContactWhatsAppPill";
 import { siteConfig } from "@/lib/site-config";
 import { whatsappHref } from "@/lib/whatsapp";
@@ -83,7 +84,9 @@ export function Closing() {
               sizes="52px"
             />
           </p>
-          <span className="foot__spacer" aria-hidden="true" />
+          <Link className="foot__partner" href="/partners">
+            Sumate como Partner
+          </Link>
         </div>
       </div>
     </section>

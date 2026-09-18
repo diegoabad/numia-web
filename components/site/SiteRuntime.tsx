@@ -10,8 +10,7 @@ function prefersReducedMotion() {
 export function SiteRuntime() {
   const [done, setDone] = useState(false);
   const [visible, setVisible] = useState(true);
-  const barRef = useRef<HTMLSpanElement>(null);
-  const countRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
   const progressRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -26,33 +25,46 @@ export function SiteRuntime() {
 
     if (reduced || seen) {
       body.classList.add("is-loaded");
+      setProgress(100);
       setVisible(false);
       return;
     }
 
-    const start = performance.now();
+    let cancelled = false;
     let frame = 0;
+    const start = performance.now();
+    const duration = 1100;
+
     const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / 420);
+      if (cancelled) return;
+      const t = Math.min(1, (now - start) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
-      const n = Math.floor(eased * 100);
-      if (countRef.current) countRef.current.textContent = String(n).padStart(2, "0");
-      if (barRef.current) barRef.current.style.width = `${n}%`;
+      const n = Math.round(eased * 100);
+      setProgress(n);
+
       if (t < 1) {
         frame = requestAnimationFrame(tick);
-      } else {
-        try {
-          sessionStorage.setItem("numia-ready", "1");
-        } catch {
-          /* ignore */
-        }
-        setDone(true);
-        body.classList.add("is-loaded");
-        window.setTimeout(() => setVisible(false), 420);
+        return;
       }
+
+      setProgress(100);
+      try {
+        sessionStorage.setItem("numia-ready", "1");
+      } catch {
+        /* ignore */
+      }
+      setDone(true);
+      body.classList.add("is-loaded");
+      window.setTimeout(() => {
+        if (!cancelled) setVisible(false);
+      }, 420);
     };
+
     frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
@@ -222,11 +234,9 @@ export function SiteRuntime() {
           <div className="preloader__inner">
             <IsoMark className="preloader__iso" />
             <div className="preloader__bar">
-              <i ref={barRef} />
+              <i style={{ width: `${progress}%` }} />
             </div>
-            <div className="preloader__count" ref={countRef}>
-              00
-            </div>
+            <div className="preloader__count">{String(progress).padStart(2, "0")}</div>
           </div>
         </div>
       ) : null}

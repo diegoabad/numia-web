@@ -19,10 +19,10 @@ export const siteConfig = {
   phoneHref: "tel:+5491156550059",
   whatsapp: "5491156550059",
   location: "Buenos Aires, Argentina",
-  hours: "Lunes a viernes, 9 a 18 h",
+  hours: "Lunes a viernes, 9 a 18 hs",
   socials: [
     { label: "Instagram", href: "https://www.instagram.com/numia.digitalstudio" },
-    { label: "Facebook", href: "https://www.facebook.com/numia.studio" },
+    { label: "Facebook", href: "https://www.facebook.com/numia.digitalstudio" },
   ],
   keywords: [
     "Numia Digital Studio",

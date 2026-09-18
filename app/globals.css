@@ -2195,12 +2195,14 @@ button {
   }
 
   .hero {
-    /* Respeta --section-max: no estirar a full viewport en monitores altos */
+    /* Mantiene --section-max en monitores altos; en laptops = 100svh */
     height: var(--section-h);
     min-height: var(--section-h);
     max-height: var(--section-h);
-    justify-content: flex-start;
-    padding-top: calc(var(--topbar-h) + clamp(20px, 2.8vh, 40px));
+    /* Como estudio: el bloque se centra en el alto disponible (Lenovo no deja vacío abajo) */
+    justify-content: center;
+    gap: clamp(28px, 3.6vh, 48px);
+    padding-top: calc(var(--topbar-h) + clamp(12px, 1.5vh, 28px));
     padding-bottom: var(--fab-bottom);
   }
 
@@ -2211,7 +2213,7 @@ button {
   }
 
   .hero__visual {
-    top: 48%;
+    top: 50%;
     right: clamp(4%, 7vw, 11%);
     width: min(26vw, 28vmin, 340px);
     max-width: 340px;
@@ -2229,7 +2231,7 @@ button {
   }
 
   .hero__copy-row {
-    gap: clamp(28px, 3.5vh, 40px);
+    gap: clamp(24px, 3.2vh, 36px);
   }
 
   .hero__bottom {
@@ -2237,12 +2239,12 @@ button {
     padding-bottom: 0;
     padding-right: clamp(2%, 4vw, 8%);
     gap: 0;
-    margin-top: clamp(28px, 3.5vh, 48px);
+    margin-top: 0;
     flex: 0 0 auto;
   }
 
   .hero__actions {
-    margin-top: clamp(28px, 3.6vh, 40px);
+    margin-top: clamp(24px, 3.2vh, 36px);
     padding-top: 0;
   }
 
@@ -2308,6 +2310,7 @@ button {
 /* Laptops bajas (Yoga / escala): compactar sin separar CTA del texto */
 @media (min-width: 901px) and (max-height: 700px) {
   .hero {
+    gap: clamp(18px, 2.6vh, 28px);
     padding-top: calc(var(--topbar-h) + 14px);
     padding-bottom: max(32px, var(--fab-bottom));
   }
@@ -2342,7 +2345,7 @@ button {
   }
 
   .hero__bottom {
-    margin-top: clamp(18px, 2.4vh, 28px);
+    margin-top: 0;
   }
 
   .hero__actions {
@@ -2352,6 +2355,7 @@ button {
 
 @media (min-width: 901px) and (max-height: 640px) {
   .hero {
+    gap: 16px;
     padding-top: calc(var(--topbar-h) + 10px);
     padding-bottom: max(24px, var(--fab-bottom));
   }
@@ -2365,7 +2369,7 @@ button {
   }
 
   .hero__bottom {
-    margin-top: 14px;
+    margin-top: 0;
   }
 
   .hero__actions {

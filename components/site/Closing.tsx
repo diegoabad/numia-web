@@ -34,6 +34,8 @@ export function Closing() {
           </div>
         </div>
 
+        <div className="closing__hold" aria-hidden="true" />
+
         <div className="closing__cols">
           <div>
             <h3>Escribinos</h3>

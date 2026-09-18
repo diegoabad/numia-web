@@ -440,7 +440,7 @@ button {
 }
 
 .hero__title {
-  font-size: clamp(2.5rem, min(5.1vw, 8.4vmin), 4.85rem);
+  font-size: clamp(2.75rem, 5.6vw, 5rem);
   line-height: 1.08;
   letter-spacing: 0.01em;
   font-weight: 600;
@@ -595,7 +595,7 @@ button {
   z-index: 2;
   margin: 0;
   max-width: min(40rem, 100%);
-  font-size: clamp(1.45rem, min(2.6vw, 3.4vmin), 2.2rem);
+  font-size: clamp(1.45rem, 2.4vw, 2.2rem);
   line-height: 1.22;
   letter-spacing: -0.035em;
   font-weight: 560;
@@ -2236,10 +2236,10 @@ button {
     height: var(--section-h);
     min-height: var(--section-h);
     max-height: var(--section-h);
-    /* Como estudio: el bloque se centra en el alto disponible (Lenovo no deja vacío abajo) */
-    justify-content: center;
-    gap: clamp(28px, 3.6vh, 48px);
-    padding-top: calc(var(--topbar-h) + clamp(12px, 1.5vh, 28px));
+    justify-content: flex-start;
+    /* Menos aire entre las 3 palabras y el H1 (ajuste suave) */
+    gap: clamp(26px, 3.2vh, 40px);
+    padding-top: calc(var(--topbar-h) + clamp(28px, 4vh, 56px));
     padding-bottom: var(--fab-bottom);
   }
 
@@ -2250,10 +2250,10 @@ button {
   }
 
   .hero__visual {
-    top: 50%;
+    top: 46%;
     right: clamp(4%, 7vw, 11%);
-    width: min(26vw, 28vmin, 340px);
-    max-width: 340px;
+    width: min(28vw, 32vmin, 360px);
+    max-width: 360px;
     transform: translateY(-50%);
   }
 
@@ -2281,7 +2281,7 @@ button {
   }
 
   .hero__actions {
-    margin-top: clamp(24px, 3.2vh, 36px);
+    margin-top: clamp(36px, 4.5vh, 52px);
     padding-top: 0;
   }
 
@@ -2344,40 +2344,35 @@ button {
   }
 }
 
-/* Laptops bajas (Yoga / escala): compactar sin separar CTA del texto */
-@media (min-width: 901px) and (max-height: 700px) {
+/* Laptops muy bajas: solo compactar aire, no achicar el título (misma lógica vw que servicios) */
+@media (min-width: 901px) and (max-height: 680px) {
   .hero {
-    gap: clamp(18px, 2.6vh, 28px);
-    padding-top: calc(var(--topbar-h) + 14px);
-    padding-bottom: max(32px, var(--fab-bottom));
-  }
-
-  .hero__title {
-    font-size: clamp(1.95rem, 5.4vmin, 2.85rem);
-    line-height: 1.05;
+    gap: clamp(16px, 2.2vh, 24px);
+    padding-top: calc(var(--topbar-h) + 18px);
+    padding-bottom: max(28px, var(--fab-bottom));
   }
 
   .hero__title .line-mask {
-    margin-bottom: 0.05em;
-    padding-top: 0.05em;
-    padding-bottom: 0.03em;
+    margin-bottom: 0.06em;
+    padding-top: 0.06em;
+    padding-bottom: 0.04em;
   }
 
   .hero__visual {
-    top: 52%;
-    width: min(22vw, 24vmin, 280px);
+    top: 48%;
+    width: min(24vw, 300px);
   }
 
   .hero__copy-row {
-    gap: clamp(14px, 2vh, 20px);
+    gap: clamp(12px, 1.8vh, 18px);
   }
 
   .hero__lead {
-    font-size: clamp(1.1rem, 2.1vmin, 1.35rem);
+    font-size: clamp(1.15rem, 1.3vw, 1.4rem);
   }
 
   .hero__body {
-    font-size: clamp(0.86rem, 1.45vmin, 0.95rem);
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
     line-height: 1.42;
   }
 
@@ -2386,31 +2381,23 @@ button {
   }
 
   .hero__actions {
-    margin-top: clamp(18px, 2.5vh, 28px);
+    margin-top: clamp(24px, 3vh, 36px);
   }
 }
 
-@media (min-width: 901px) and (max-height: 640px) {
+@media (min-width: 901px) and (max-height: 600px) {
   .hero {
-    gap: 16px;
-    padding-top: calc(var(--topbar-h) + 10px);
-    padding-bottom: max(24px, var(--fab-bottom));
-  }
-
-  .hero__title {
-    font-size: clamp(1.75rem, 5vmin, 2.45rem);
+    gap: 14px;
+    padding-top: calc(var(--topbar-h) + 12px);
+    padding-bottom: max(22px, var(--fab-bottom));
   }
 
   .hero__copy-row {
-    gap: 12px;
-  }
-
-  .hero__bottom {
-    margin-top: 0;
+    gap: 10px;
   }
 
   .hero__actions {
-    margin-top: 16px;
+    margin-top: 20px;
   }
 }
 

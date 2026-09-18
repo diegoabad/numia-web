@@ -530,7 +530,8 @@ button {
 
 .hero__visual {
   position: absolute;
-  right: clamp(3%, 6vw, 10%);
+  /* Anclado al borde del contenido (--page-max), no al borde del monitor */
+  right: var(--page-side);
   top: 42%;
   width: min(28vw, 26vmin, 320px);
   max-width: 320px;
@@ -2251,8 +2252,8 @@ button {
 
   .hero__visual {
     top: 46%;
-    right: clamp(4%, 7vw, 11%);
-    width: min(28vw, 32vmin, 360px);
+    right: var(--page-side);
+    width: min(28vw, 360px);
     max-width: 360px;
     transform: translateY(-50%);
   }

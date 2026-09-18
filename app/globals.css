@@ -440,7 +440,7 @@ button {
 }
 
 .hero__title {
-  font-size: clamp(2.55rem, 5.1vw, 4.6rem);
+  font-size: clamp(2.45rem, 4.85vw, 4.4rem);
   line-height: 1.08;
   letter-spacing: 0.01em;
   font-weight: 600;
@@ -530,8 +530,8 @@ button {
 
 .hero__visual {
   position: absolute;
-  /* Anclado al borde del contenido (--page-max), no al borde del monitor */
-  right: var(--page-side);
+  /* Anclado al borde del contenido (--page-max), corrido un poco a la izquierda */
+  right: calc(var(--page-side) + clamp(16px, 1.8vw, 36px));
   top: 42%;
   width: min(28vw, 26vmin, 320px);
   max-width: 320px;
@@ -596,7 +596,7 @@ button {
   z-index: 2;
   margin: 0;
   max-width: min(40rem, 100%);
-  font-size: clamp(1.45rem, 2.4vw, 2.2rem);
+  font-size: clamp(1.38rem, 2.25vw, 2.05rem);
   line-height: 1.22;
   letter-spacing: -0.035em;
   font-weight: 560;
@@ -2246,12 +2246,12 @@ button {
   }
 
   .hero__title {
-    font-size: clamp(2.55rem, 5.1vw, 4.6rem);
+    font-size: clamp(2.45rem, 4.85vw, 4.4rem);
   }
 
   .hero__visual {
     top: 50%;
-    right: var(--page-side);
+    right: calc(var(--page-side) + clamp(16px, 1.8vw, 36px));
     width: min(28vw, 360px);
     max-width: 360px;
     transform: translateY(-50%);
@@ -2260,6 +2260,7 @@ button {
   .hero__lead {
     margin-top: 0;
     max-width: min(48rem, 92%);
+    font-size: clamp(1.38rem, 2.25vw, 2.05rem);
   }
 
   .hero__body {
@@ -2351,9 +2352,13 @@ button {
     padding-bottom: max(var(--fab-bottom), clamp(28px, 3.5vh, 40px));
   }
 
-  /* Solo el display (CREAMOS…), no el H1 ni los párrafos */
+  /* Un poco más chico en laptops bajas para que no se desborde */
   .hero__title {
-    font-size: clamp(2.35rem, 4.5vw, 3.8rem);
+    font-size: clamp(2.25rem, 4.3vw, 3.55rem);
+  }
+
+  .hero__lead {
+    font-size: clamp(1.3rem, 2.05vw, 1.85rem);
   }
 
   .hero__title .line-mask {
@@ -2376,7 +2381,11 @@ button {
   }
 
   .hero__title {
-    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    font-size: clamp(2.1rem, 4vw, 3.2rem);
+  }
+
+  .hero__lead {
+    font-size: clamp(1.25rem, 1.95vw, 1.7rem);
   }
 }
 

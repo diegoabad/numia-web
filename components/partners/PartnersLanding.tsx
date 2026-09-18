@@ -1,8 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { PartnersForm } from "./PartnersForm";
 import { partnersContent } from "@/lib/partners-content";
 import { siteConfig } from "@/lib/site-config";
+
+function withAccent(text: string): ReactNode[] {
+  return text.split(/(\*[^*]+\*)/g).map((part, index) => {
+    if (part.startsWith("*") && part.endsWith("*")) {
+      return <em key={`${part}-${index}`}>{part.slice(1, -1)}</em>;
+    }
+    return part;
+  });
+}
 
 export function PartnersLanding() {
   const c = partnersContent;
@@ -14,10 +24,10 @@ export function PartnersLanding() {
           <Image
             src="/images/logo-header.webp"
             alt={siteConfig.name}
-            width={148}
-            height={22}
+            width={178}
+            height={27}
             priority
-            sizes="148px"
+            sizes="178px"
           />
         </Link>
         <a className="pl-top__cta" href="#registro">
@@ -27,19 +37,29 @@ export function PartnersLanding() {
 
       <main id="contenido-principal">
         <section className="pl-hero" id="inicio">
-          <div className="pl-hero__bg" aria-hidden="true" />
           <div className="pl-hero__inner">
             <p className="pl-hero__brand">{c.brand}</p>
-            <h1 className="pl-hero__title">{c.hero.title}</h1>
-            <p className="pl-hero__lead">{c.hero.lead}</p>
-            <ul className="pl-hero__perks">
-              {c.hero.perks.map((perk) => (
-                <li key={perk}>
-                  <span aria-hidden="true">✓</span>
-                  {perk}
-                </li>
+            <h1 className="pl-hero__title">{withAccent(c.hero.title)}</h1>
+            <div className="pl-hero__lead">
+              {c.hero.lead.map((paragraph) => (
+                <p key={paragraph}>{withAccent(paragraph)}</p>
               ))}
-            </ul>
+            </div>
+            <div className="pl-hero__perks">
+              {c.hero.perkGroups.map((group) => (
+                <div className="pl-hero__perk-group" key={group.title}>
+                  <p className="pl-hero__perk-title">{group.title}</p>
+                  <ul>
+                    {group.items.map((item) => (
+                      <li key={item}>
+                        <span aria-hidden="true">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
             <a className="pl-cta pl-cta--hero" href="#registro">
               {c.hero.cta}
             </a>

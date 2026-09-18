@@ -3,9 +3,9 @@ import { PartnersLanding } from "@/components/partners/PartnersLanding";
 import { siteConfig, siteUrl } from "@/lib/site-config";
 import "./partners.css";
 
-const title = "Partner Comercial | Generá ingresos con servicios digitales";
+const title = "Partner Comercial | Generá ingresos extra";
 const description =
-  "Sumate como Partner Comercial de Numia Digital Studio. Sin inversión inicial ni conocimientos técnicos. Conseguí clientes y ganá comisiones de hasta el 20%.";
+  "Encontrá interesados en web, tienda online u otros servicios digitales. Numia se encarga del resto y vos ganás comisiones de hasta el 20%.";
 
 export const metadata: Metadata = {
   title,

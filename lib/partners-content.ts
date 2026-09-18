@@ -1,16 +1,31 @@
 export const partnersContent = {
-  brand: "Numia Partners",
+  brand: "Vendé con Numia",
   hero: {
-    title: "Generá ingresos recomendando y vendiendo servicios digitales",
-    lead:
-      "Sumate como Partner Comercial de Numia. Nosotros te damos los servicios, precios, material y acompañamiento. Vos conseguís clientes y ganás una comisión por cada venta.",
-    perks: [
-      "Sin conocimientos técnicos",
-      "Desde cualquier lugar de Argentina",
-      "Sin inversión inicial",
-      "Comisiones de hasta el 20%",
+    title: "¿Querés generar *ingresos extra*?",
+    lead: [
+      "Encontrá personas o negocios que necesiten una web, tienda online u otro servicio digital.",
+      "Si están interesados, *nosotros nos encargamos* de hablar con el cliente, entender qué necesita, preparar la propuesta y hacer el trabajo.",
+      "*Vos ganás una comisión* por cada venta concretada.",
     ],
-    cta: "Quiero ser Partner",
+    perkGroups: [
+      {
+        title: "No necesitás",
+        items: [
+          "Conocimientos técnicos",
+          "Diseñar ni desarrollar páginas web",
+          "Asesorar el cliente",
+        ],
+      },
+      {
+        title: "Nosotros te damos",
+        items: [
+          "Contenido para las redes y WhatsApp",
+          "Acompañá en cada cliente",
+          "Comisiones de hasta el 20%",
+        ],
+      },
+    ],
+    cta: "Quiero empezar a vender",
   },
   steps: [
     {
